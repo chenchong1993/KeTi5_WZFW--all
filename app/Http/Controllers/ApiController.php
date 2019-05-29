@@ -7,13 +7,11 @@
  */
 
 namespace App\Http\Controllers;
-use App\Bluetooth;
 use App\HeatMapData;
 use App\Obs;
 use App\Past_Locations;
 use App\Sensor;
 use App\TerminalUser;
-use App\Wifi;
 use Couchbase\TerminalUserSettings;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -241,8 +239,8 @@ class ApiController extends Controller
     {
         $validator = Validator::make(rq(), [
             'uid' => 'required',
-            'x' => '',
-            'y' => '',
+            'x' => 'required',
+            'y' => 'required',
             'lng' => 'required',
             'lat' => 'required',
             'floor' => 'required',
@@ -251,6 +249,7 @@ class ApiController extends Controller
 //            location_method = 0 指纹
 //            location_method = 1 混合
 //            location_method = 2 视觉
+//            location_method = 3 伪卫星
         ]);
 
         if ($validator->fails())
@@ -265,7 +264,7 @@ class ApiController extends Controller
         $orien = rq('orien');
         $location_method = rq('location_method');
 
-        $users =RtCoo::where('uid',$uid)->first();
+        $users =TerminalUser::where('uid',$uid)->first();
         if ($users){
 //            更新
             $users->x = $x;
@@ -280,7 +279,7 @@ class ApiController extends Controller
         }
         else{
             //插入
-            $users = new RtCoo();
+            $users = new TerminalUser();
             $users->uid = $uid;
             $users->x = $x;
             $users->y = $y;
@@ -293,7 +292,7 @@ class ApiController extends Controller
 
         }
 
-        $userLocation = new Coo();
+        $userLocation = new TerminalUser();
         $userLocation->uid = $uid;
         $userLocation->x = $x;
         $userLocation->y = $y;
@@ -411,42 +410,20 @@ class ApiController extends Controller
         $blue_tooth=rq('bluetooth');
         $sensor=rq('sensor');
 
-        $wifiData = new Wifi();
-        $bluData = new  Bluetooth();
-        $sensorData = new Sensor();
+        $obsData = new Obs();
 //wifi表上传
-        $wifiData->uid=$uid;
-        $wifiData->lng=$lng;
-        $wifiData->lat=$lat;
-        $wifiData->x=$x;
-        $wifiData->y=$y;
-        $wifiData->floor=$floor;
-        $wifiData->orien=$orien;
-        $wifiData->wifi = $wifi;
-//蓝牙表上传
-        $bluData->uid=$uid;
-        $bluData->lng=$lng;
-        $bluData->lat=$lat;
-        $bluData->x=$x;
-        $bluData->y=$y;
-        $bluData->floor=$floor;
-        $bluData->orien=$orien;
-        $bluData->blue_tooth = $blue_tooth;
+        $obsData->uid=$uid;
+        $obsData->lng=$lng;
+        $obsData->lat=$lat;
+        $obsData->x=$x;
+        $obsData->y=$y;
+        $obsData->floor=$floor;
+        $obsData->orien=$orien;
+        $obsData->wifi = $wifi;
+        $obsData->blue_tooth = $blue_tooth;
+        $obsData->sensor = $sensor;
 
-//传感器表上传
-
-        $sensorData->uid=$uid;
-        $sensorData->lng=$lng;
-        $sensorData->lat=$lat;
-        $sensorData->x=$x;
-        $sensorData->y=$y;
-        $sensorData->floor=$floor;
-        $sensorData->orien=$orien;
-        $sensorData->sensor = $sensor;
-
-        $wifiData->save();
-        $bluData->save();
-        $sensorData->save();
+        $obsData->save();
         return suc();
 
     }

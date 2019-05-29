@@ -63,14 +63,6 @@ class PageController extends Controller
         return view('user.update',['userInfo'=>$userInfo]);
     }
     /**
-     * 兴趣点图
-     */
-    public function poiMap()
-    {
-        $pois = Poi::all();
-        return view('map.poimap',['pois' => $pois]);
-    }
-    /**
      * 331用户实时位置地图
      */
     public function normalMap331()

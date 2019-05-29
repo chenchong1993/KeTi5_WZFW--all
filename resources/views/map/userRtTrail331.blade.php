@@ -38,16 +38,6 @@
     .menu-btn {
         position: fixed;top:30px;right: 16%;font-size: 18px;
     }
-    #selectUsername{
-        top:16%;
-    }
-    #showClean{
-        top:20%;
-    }
-    #showGetCoo{
-        top:24%;
-    }
-
 </style>
 <style>
     html, body, #map1,map2,map3{
@@ -257,10 +247,8 @@
     /**
      * 定义全局变量
      **/
-    var INTERVAL_TIME = 2; //数据刷新间隔时间
+    var INTERVAL_TIME = 1; //数据刷新间隔时间
     var POINTSIZE = 22;    //默认图片大小为24*24
-    var HELLO_STR = "系统初始化成功！"; //初始化欢迎语句
-    var USER_ID = 5;//用户序号
     var POINTLAT = 38.0;
     var POINTLNG = 114.0;
 

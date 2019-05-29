@@ -40,12 +40,6 @@
     .menu-btn {
         position: fixed;top:30px;left:900px;font-size: 18px;
     }
-    #show331{
-        top:30px;
-    }
-    #showRtTrailC7{
-        top:70px;
-    }
 </style>
 <style>
     html, body, #map{
@@ -234,7 +228,7 @@
     /**
      * 定义全局变量
      **/
-    var INTERVAL_TIME = 2; //数据刷新间隔时间
+    var INTERVAL_TIME = 1; //数据刷新间隔时间
     var POINTSIZE = 24;    //默认图片大小为24*24
     /**
      * 跳转到用户历史轨迹页面
