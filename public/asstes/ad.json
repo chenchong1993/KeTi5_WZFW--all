@@ -1,0 +1,14 @@
+{
+
+  "pause": [
+    {
+      "file": "/asstes/img/adv.jpg",
+      "type": "jpg",
+      "link": "http://www.ckplayer.com",
+      "time": 5,
+      "exhibitionMonitor": "exhibitionMonitor.php",
+      "clickMonitor": "clickMonitor.php"
+    }
+  ]
+
+}
