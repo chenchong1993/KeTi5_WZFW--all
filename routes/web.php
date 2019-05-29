@@ -71,7 +71,7 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::group(['prefix' => 'api'], function () {
 
-        Route::post('apiTest', 'ApiController@apiTest');//测试路由
+        Route::post('apiTest', 'ApiController@apiTest');//测试
         Route::post('apiUserAdd', 'ApiController@apiUserAdd');//添加用户
         Route::any('apiUserDelete','ApiController@apiUserDelete'); //删除用户
         Route::any('apiUserUpdate','ApiController@apiUserUpdate'); //修改用户资料

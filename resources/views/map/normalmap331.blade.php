@@ -359,28 +359,7 @@
         var pointLayerF2 = new GraphicsLayer();
         var pointLayerF3= new GraphicsLayer();
 
-        /**
-         * 更新位置信息小部件
-         */
-        function updateLocationBox(username,curr_lng,curr_lat,refer_lng,refer_lat,floor,location_method){
-            if (location_method==0){location_method='指纹定位'}
-            if (location_method==1){location_method='混合定位'}
-            if (location_method==2){location_method='视觉定位'}
-            var currlat = (curr_lat+ "").substring(0,11);
-            var currlng = (curr_lng+ "").substring(0,12);
-            var referlat = (refer_lat+ "").substring(0,11);
-            var referlng = (refer_lng+ "").substring(0,12);
-            var d_lat = (((curr_lat-refer_lat)*111319.4907)+ "");
-            var d_lng = (((curr_lng-refer_lng)*111319.4907)+ "");
-            var index_lat=d_lat.lastIndexOf(".");
-            var index_lng=d_lng.lastIndexOf(".");
-            d_lat = d_lat.substring(0,index_lat+4);
-            d_lng = d_lng.substring(0,index_lng+4);
-            $('#user-msg').html(username+", "+floor+"楼, "+location_method);
-            $('#current-location').html("("+currlat+","+currlng+")");
-            $('#refer-location').html("("+referlat+","+referlng+")");
-            $('#offset-location').html("("+d_lat+","+d_lng+")m");
-        }
+
 
         /**
          * 添加点图标
@@ -477,15 +456,6 @@
                                 }
                             }
                         }
-                        updateLocationBox(
-                            dat.data[USER_ID].name,
-                            dat.data[USER_ID].lng,
-                            dat.data[USER_ID].lat,
-                            POINTLNG,
-                            POINTLAT,
-                            dat.data[USER_ID].floor,
-                            dat.data[USER_ID].location_method
-                        );
                     } else {
                         console.log('ajax error!');
                     }

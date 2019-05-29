@@ -26,6 +26,24 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/map/userTrailC7.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1530">
+              <caret line="234" selection-start-line="234" selection-end-line="234" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="522">
+              <caret line="73" column="60" lean-forward="true" selection-start-line="73" selection-start-column="60" selection-end-line="73" selection-end-column="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/map/routemap.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="361">
@@ -34,20 +52,48 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/map/userRtTrail331.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-850">
-              <caret line="47" column="8" lean-forward="true" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="8" />
+            <state relative-caret-position="-4710">
+              <caret line="249" column="25" selection-start-line="249" selection-start-column="25" selection-end-line="249" selection-end-column="25" />
+              <folding>
+                <element signature="n#style#2;n#body#0;n#html#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/map/userRtTrailC7.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2917">
+              <caret line="243" selection-start-line="243" selection-end-line="243" />
+              <folding>
+                <element signature="n#style#2;n#body#0;n#html#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/map/userTrail331.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3824">
+              <caret line="59" column="13" lean-forward="true" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
+              <folding>
+                <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#1;n#body#0;n#html#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/map/normalmap331.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="238" column="25" lean-forward="true" selection-start-line="238" selection-start-column="25" selection-end-line="238" selection-end-column="25" />
+            <state relative-caret-position="784">
+              <caret line="479" selection-start-line="479" selection-end-line="479" />
             </state>
           </provider>
         </entry>
@@ -108,26 +154,26 @@
         <option value="$PROJECT_DIR$/resources/views/heatmap/peopleHeatMap.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/map/poimap.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/map/normalmapC7.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/map/userTrailC7.php" />
         <option value="$PROJECT_DIR$/resources/views/map/userTrail.blade.php" />
         <option value="$USER_HOME$/Desktop/test.html" />
-        <option value="$PROJECT_DIR$/resources/views/map/userRtTrailC7.blade.php" />
         <option value="$PROJECT_DIR$/public/css/box.css" />
         <option value="$USER_HOME$/Desktop/map-c7.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/map/ClickMapPoint.html" />
         <option value="$PROJECT_DIR$/resources/views/map/normalmap.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/push/one2more.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/map/routemap.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/map/userTrailC7.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/welcome.blade.php" />
         <option value="$PROJECT_DIR$/app/HeatMapData.php" />
         <option value="$PROJECT_DIR$/app/Obs.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ApiController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PageController.php" />
         <option value="$PROJECT_DIR$/resources/views/map/normalmapC7.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/map/normalmap331.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/map/userRtTrail331.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/map/userRtTrailC7.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/map/userTrailC7.blade.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/resources/views/map/normalmap331.blade.php" />
       </list>
     </option>
   </component>
@@ -353,12 +399,12 @@
       <workItem from="1559011452932" duration="279000" />
       <workItem from="1559031106042" duration="5259000" />
       <workItem from="1559088939285" duration="35000" />
-      <workItem from="1559089009138" duration="1137000" />
+      <workItem from="1559089009138" duration="2882000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="191480000" />
+    <option name="totallyTimeSpent" value="193225000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -389,9 +435,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/test/heatmap.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/test/userTrail.blade.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -414,13 +457,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/map/userTrail.blade.php" />
-    <entry file="file://$PROJECT_DIR$/resources/views/map/userRtTrailC7.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-950">
-          <caret line="132" column="63" selection-start-line="132" selection-start-column="63" selection-end-line="132" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/box.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
@@ -476,13 +512,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4731">
           <caret line="249" column="7" selection-start-line="249" selection-start-column="7" selection-end-line="249" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1463">
-          <caret line="77" selection-start-line="77" selection-end-line="87" selection-end-column="71" />
         </state>
       </provider>
     </entry>
@@ -549,13 +578,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
           <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/map/userTrailC7.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="71" column="4" selection-start-line="71" selection-start-column="4" selection-end-line="186" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -628,13 +650,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/map/normalmap331.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="238" column="25" lean-forward="true" selection-start-line="238" selection-start-column="25" selection-end-line="238" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/map/routemap.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
@@ -644,8 +659,53 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/map/userRtTrail331.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-850">
-          <caret line="47" column="8" lean-forward="true" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="8" />
+        <state relative-caret-position="-4710">
+          <caret line="249" column="25" selection-start-line="249" selection-start-column="25" selection-end-line="249" selection-end-column="25" />
+          <folding>
+            <element signature="n#style#2;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/map/userRtTrailC7.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2917">
+          <caret line="243" selection-start-line="243" selection-end-line="243" />
+          <folding>
+            <element signature="n#style#2;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/map/userTrail331.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3824">
+          <caret line="59" column="13" lean-forward="true" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
+          <folding>
+            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#1;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/map/userTrailC7.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1530">
+          <caret line="234" selection-start-line="234" selection-end-line="234" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="73" column="60" lean-forward="true" selection-start-line="73" selection-start-column="60" selection-end-line="73" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/map/normalmap331.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="784">
+          <caret line="479" selection-start-line="479" selection-end-line="479" />
         </state>
       </provider>
     </entry>
