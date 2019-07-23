@@ -76,7 +76,9 @@ Route::group(['middleware' => 'web'], function () {
         Route::any('apiUserDelete','ApiController@apiUserDelete'); //删除用户
         Route::any('apiUserUpdate','ApiController@apiUserUpdate'); //修改用户资料
         Route::post('apiGetUid', 'ApiController@apiGetUid');//为终端获取用户UID
-        Route::post('apiAddUserLocation', 'ApiController@apiAddUserLocation');//终端上传用户坐标
+        Route::post('apiLogin', 'ApiController@apiLogin');//终端手机用户登陆接口
+        Route::post('apiLogout', 'ApiController@apiLogout');//终端手机用户登出接口
+        Route::post('apiAddTerminalUserLocation', 'ApiController@apiAddTerminalUserLocation');//终端上传用户坐标
         Route::post('apiNameSeach', 'ApiController@apiNameSeach');//名称搜索接口
         Route::get('apiGetAllUserNewLocationList', 'ApiController@apiGetAllUserNewLocationList');//从数据库中获取用户位置信息
         Route::post('apiAddObs', 'ApiController@apiAddObs');//获取观测数据

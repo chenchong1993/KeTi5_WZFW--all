@@ -30,6 +30,74 @@ class ApiController extends Controller
         return 0;
     }
     /**
+     * 终端根据用户名获取UID接口
+     */
+    public function apiGetUid()
+    {
+        $validator = Validator::make(rq(), [
+            'username' => 'required',
+        ]);
+
+        if ($validator->fails())
+            return err(1, $validator->messages());
+
+        $user_name = rq('username');
+
+        $user = TerminalUser::where("name" ,'like', '%'.$user_name.'%')->get();
+        if ($user->isEmpty()){
+            return  err(1, $validator->messages());
+        }
+        else{
+            return $user[0]->uid;
+        }
+
+    }
+    /**
+     * 用户登陆接口
+     */
+    public function apiLogin()
+    {
+        $validator = Validator::make(rq(), [
+            'username' => 'required',
+            'password' => 'required',
+        ]);
+        if ($validator->fails())
+            return err(1, $validator->messages());
+        $username = rq('username');
+        $password = rq('password');
+        $uid = $this->apiGetUid($username);
+        $userInfo =TerminalUser::where("uid",'=',$uid)->first();
+        if ($userInfo){
+            if ($userInfo->password == $password){
+                $userInfo->status = 1;
+                if($userInfo->save()){
+                    return $uid;
+                }
+            }else{
+                echo "密码错误";
+            }
+        }else{
+            echo "该用户尚未注册";
+        }
+    }
+    /**
+     * 用户登出接口
+     */
+    public function apiLogout(){
+        $validator = Validator::make(rq(), [
+            'username' => 'required',
+        ]);
+        if ($validator->fails())
+            return err(1, $validator->messages());
+        $username = rq('username');
+        $uid = $this->apiGetUid($username);
+        $userInfo =TerminalUser::where("uid",'=',$uid)->first();
+        $userInfo->status = 0;
+        if($userInfo->save()){
+            echo "登出成功";
+        }
+    }
+    /**
      * 封装json格式的POST请求
      */
     public function apiPostJson($url,$data)
@@ -138,7 +206,6 @@ class ApiController extends Controller
 //                return redirect('userList')->with('success','添加成功');
             }else{
                 echo "数据库存储错误";
-                return redirect('userAdd')->with('error','数据库存储错误');
             }
 
         }
@@ -160,12 +227,12 @@ class ApiController extends Controller
         if ($validator->fails())
             return err(1, $validator->messages());
 
-        $uid = rq('uid');
         $username = rq('username');
         $password = rq('password');
         $phone = rq('phone');
         $email = rq('email');
         $sex = rq('sex');
+        $uid = $this->apiGetUid($username);
         $userInfo =TerminalUser::where("uid",'=',$uid)->first();
         $userInfo->name = $username;
         $userInfo->password = $password;
@@ -177,7 +244,6 @@ class ApiController extends Controller
             echo "修改成功";
         }
     }
-
     /**
      * 删除用户接口
      */
@@ -191,7 +257,6 @@ class ApiController extends Controller
             return 1;
         }
     }
-
     /**
      * 查询结果接口
      */
@@ -263,7 +328,6 @@ class ApiController extends Controller
         $floor = rq('floor');
         $orien = rq('orien');
         $location_method = rq('location_method');
-
         $users =TerminalUser::where('uid',$uid)->first();
         if ($users){
 //            更新
@@ -292,7 +356,7 @@ class ApiController extends Controller
 
         }
 
-        $userLocation = new TerminalUser();
+        $userLocation = new Past_Locations();
         $userLocation->uid = $uid;
         $userLocation->x = $x;
         $userLocation->y = $y;
@@ -300,7 +364,7 @@ class ApiController extends Controller
         $userLocation->lat = $lat;
         $userLocation->floor = $floor;
         $userLocation->orien = $orien;
-        $users->location_method = $location_method;
+        $userLocation->location_method = $location_method;
         $userLocation->save();
         return suc();
     }
@@ -314,29 +378,7 @@ class ApiController extends Controller
         $TerminalUserInfo = TerminalUser::where("uid",'=',$uid)->get();
         echo $TerminalUserInfo;
     }
-    /**
-     * 终端根据用户名获取UID接口
-     */
-    public function apiGetUid()
-    {
-        $validator = Validator::make(rq(), [
-            'username' => 'required|string',
-        ]);
 
-        if ($validator->fails())
-            return err(1, $validator->messages());
-
-        $user_name = rq('username');
-
-        $user = TerminalUser::where("username" ,'like', '%'.$user_name.'%')->get();
-        if ($user->isEmpty()){
-            return  err(1, $validator->messages());
-        }
-        else{
-            return $user[0]->uid;
-        }
-
-    }
     /**
      * 名称搜索接口
      */
@@ -387,8 +429,8 @@ class ApiController extends Controller
             'uid' => 'required',
             'lng' => 'required',
             'lat' => 'required',
-            'x' => '',
-            'y' => '',
+            'x' => 'required',
+            'y' => 'required',
             'floor' => 'required',
             'orien' => 'required',
             'wifi' => '',
@@ -411,7 +453,6 @@ class ApiController extends Controller
         $sensor=rq('sensor');
 
         $obsData = new Obs();
-//wifi表上传
         $obsData->uid=$uid;
         $obsData->lng=$lng;
         $obsData->lat=$lat;
