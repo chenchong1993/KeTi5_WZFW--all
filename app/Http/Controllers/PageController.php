@@ -25,6 +25,7 @@ class PageController extends Controller
     {
         return view('index');
     }
+    //----------------------------------------------------------------用户管理模块---------------------------------------------------
     /**
      * 用户列表
      */
@@ -62,6 +63,7 @@ class PageController extends Controller
         $userInfo = TerminalUser::where("uid" ,'=', $uid)->get();
         return view('user.update',['userInfo'=>$userInfo]);
     }
+   //-----------------------------------------------------------------------331地图模块----------------------------------------------
     /**
      * 331用户实时位置地图
      */
@@ -98,13 +100,21 @@ class PageController extends Controller
         return view('map.userRtTrail331',['userPositionLists' => $userPositionList]);
     }
     /**
+     * 331人口分布热力图
+     */
+    public function peopleIn331()
+    {
+        return view('heatmap.peopleIn331');
+    }
+    //-----------------------------------------------------------------------C7地图模块-----------------------------------------------
+    /**
      * C7用户实时位置地图
      */
     public function normalMapC7()
     {
         return view('map.normalmapC7');
     }
-    /**W
+    /**
      * C7历史轨迹
      */
     public function userTrailC7()
@@ -131,7 +141,49 @@ class PageController extends Controller
         $userPositionList = TerminalUser::where('uid' ,'=', $uid)->get();
         return view('map.userRtTrailC7',['userPositionLists' => $userPositionList]);
     }
-
+    //---------------------------------------------------------------------奥莱地图模块------------------------------------------------
+    /**
+     * 奥特莱斯用户实时位置地图
+     */
+    public function normalMapATLS()
+    {
+        return view('map.normalmapATLS');
+    }
+    /**
+     * 奥特莱斯实时轨迹
+     */
+    public function userRtTrailATLS()
+    {
+        $uid = rq('uid');
+        $userPositionList = TerminalUser::where('uid' ,'=', $uid)->get();
+//        return view('map.normalmapATLS');
+        return view('map.userRtTrailATLS',['userPositionLists' => $userPositionList]);
+    }
+    /**
+     * 奥特莱斯历史轨迹
+     */
+    public function userTrailATLS()
+    {
+        $uid = rq('uid');
+        $startTime = rq('startTime');//"2018-10-22 11:36:07";//rq('startTime');
+        $endTime = rq('endTime');//"2018-10-22 11:38:19";//rq('endTime');
+        if ($startTime== '' or $endTime == ''){
+            return '输入时间段为空';
+        }
+        $userPositionList = Past_Locations::where('uid' ,'=', $uid)->where('created_at', '>=', $startTime)->where('created_at', '<=', $endTime)->get();
+        if ($userPositionList->isEmpty()){
+            return '输入有误或该时间段内没有数据';
+        }
+//        echo $userPositionList;
+        return view('map.userTrailATLS',['userPositionLists' => $userPositionList]);
+    }
+    //---------------------------------------------------------------------其他地图模块------------------------------------------------
+    /**
+     * 电子围栏地图DEMO
+     */
+    public function electricFenceDemo(){
+        return view('map.electricFenceDemo');
+    }
     /**
      * 路网图
      */
@@ -146,7 +198,6 @@ class PageController extends Controller
     {
         return view('map.heatmap');
     }
-
     /**
      * 石家庄桥西区人口分布热力图
      */
@@ -154,14 +205,6 @@ class PageController extends Controller
     {
         return view('heatmap.peopleHeatMap');
     }
-    /**
-     * 331人口分布热力图
-     */
-    public function peopleIn331()
-    {
-        return view('heatmap.peopleIn331');
-    }
-
     /**
      * wifi信号强度热力图
      */
@@ -203,11 +246,11 @@ class PageController extends Controller
     /**
      * 测试轨迹
      */
-    public function userTrail1()
+    public function test()
     {
-        return view('test.userTrail1');
+        return view('test.test');
     }
-
+    //-----------------------------------------------------------------------------查询模块-----------------------------------------
     /**
      * 名称查询
      */
@@ -223,7 +266,7 @@ class PageController extends Controller
     {
         return view('search.extentSearch');
     }
-
+    //--------------------------------------------------------------------推送模块---------------------------------------------------
     /**
      * 云推送私信
      */

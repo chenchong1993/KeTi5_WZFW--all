@@ -35,8 +35,8 @@
                 <ul class="cl">
                     <li class="dropDown dropDown_hover "><a href="javascript:;" class="dropDown_A" style="font-size: 18px">大众位置服务<i class="Hui-iconfont">&#xe6d5;</i></a>
                         <ul class="dropDown-menu menu radius box-shadow">
-                            <li><a href="javascript:;"> 安全监控平台</a></li>
-                            <li><a href="javascript:;">应急救援平台</a></li>
+                            <li><a href="http://121.28.103.199:180/index"> 安全监控平台</a></li>
+                            <li><a href="http://121.28.103.199:5621/yjjy/main/index">应急救援平台</a></li>
                         </ul>
                     </li>
                 </ul>

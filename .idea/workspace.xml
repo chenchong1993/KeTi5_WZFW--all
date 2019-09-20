@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/resources/views/index.blade.php" description="        &lt;dl id=&quot;menu-picture&quot;&gt;&#10;            &lt;dt&gt;&lt;i ..." line="81" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="0476da67-ce9d-4a83-be6c-352349cd054b" name="默认的" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -13,142 +10,12 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-  </component>
-  <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ApiController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="90" column="50" lean-forward="true" selection-start-line="90" selection-start-column="50" selection-end-line="90" selection-end-column="50" />
-              <folding>
-                <element signature="e#136#156#0#PHP" expanded="true" />
-                <element signature="e#489#544#0#PHP" />
-                <element signature="e#588#1078#0#PHP" />
-                <element signature="e#588#1483#0#PHP" />
-                <element signature="e#1704#2258#0#PHP" />
-                <element signature="e#4056#4986#0#PHP" />
-                <element signature="e#5027#5266#0#PHP" />
-                <element signature="e#5297#6187#0#PHP" />
-                <element signature="e#7389#9414#0#PHP" />
-                <element signature="e#6379#6806#0#PHP" />
-                <element signature="e#8377#8537#0#PHP" />
-                <element signature="e#9116#9836#0#PHP" />
-                <element signature="e#9880#10004#0#PHP" />
-                <element signature="e#10074#11215#0#PHP" />
-                <element signature="e#11251#11871#0#PHP" />
-                <element signature="e#11937#13435#0#PHP" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Past_Locations.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/TerminalUser.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/web.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="79" column="30" selection-start-line="79" selection-start-column="30" selection-end-line="79" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>current-location</find>
-      <find>POINTSIZE</find>
-      <find>font-awesome.min.css</find>
-      <find>hulla</find>
-      <find>jquery.min.js</find>
-      <find>hullabaloo</find>
-      <find>font-awesome.min</find>
-      <find>notify</find>
-      <find>notifySetup</find>
-      <find>HELLO_STR</find>
-      <find>substring</find>
-      <find>console</find>
-      <find>menu-btn</find>
-      <find>USER_ID</find>
-      <find>heatMapData</find>
-      <find>appendLog</find>
-      <find>TEST</find>
-      <find>chat</find>
-      <find>apiSearchResult</find>
-      <find>userTrailC7</find>
-      <find>user</find>
-      <find>userup</find>
-      <find>uid</find>
-      <find>apipost</find>
-      <find>apiPostJson</find>
-      <find>showGetCoo</find>
-      <find>show331</find>
-      <find>catUserTrail</find>
-      <find>selectUsername</find>
-      <find>showClean</find>
-    </findStrings>
+    <execution>
+      <executable />
+    </execution>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/resources/views/heatmap/rssHeatMap.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/heatmap/wifiSignalHeatMap.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/heatmap/bluSignalHeatMap.blade.php" />
-        <option value="$PROJECT_DIR$/app/RtCoo.php" />
-        <option value="$PROJECT_DIR$/../../php/composer.json" />
-        <option value="$PROJECT_DIR$/config/app.php" />
-        <option value="$PROJECT_DIR$/config/excel.php" />
-        <option value="$PROJECT_DIR$/resources/views/common/layouts.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/heatmap/peopleIn331.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/heatmap/peopleHeatMap.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/map/poimap.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/map/normalmapC7.php" />
-        <option value="$PROJECT_DIR$/resources/views/map/userTrailC7.php" />
-        <option value="$PROJECT_DIR$/resources/views/map/userTrail.blade.php" />
-        <option value="$USER_HOME$/Desktop/test.html" />
-        <option value="$PROJECT_DIR$/public/css/box.css" />
-        <option value="$USER_HOME$/Desktop/map-c7.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/map/ClickMapPoint.html" />
-        <option value="$PROJECT_DIR$/resources/views/map/normalmap.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/push/one2more.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/map/routemap.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/welcome.blade.php" />
-        <option value="$PROJECT_DIR$/app/HeatMapData.php" />
-        <option value="$PROJECT_DIR$/app/Obs.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/PageController.php" />
-        <option value="$PROJECT_DIR$/resources/views/map/normalmapC7.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/map/userRtTrail331.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/map/userRtTrailC7.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/map/userTrailC7.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/map/normalmap331.blade.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/ApiController.php" />
-      </list>
-    </option>
   </component>
   <component name="PhpServers">
     <servers />
@@ -222,79 +89,24 @@
       <path value="$PROJECT_DIR$/vendor/phpoffice/phpexcel" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1040" />
-    <option name="height" value="744" />
-  </component>
+  <component name="ProjectId" id="1QrGnM9wIgDjPifB4AKpNTUDgks" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="KeTi5_WZFW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KeTi5_WZFW" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KeTi5_WZFW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KeTi5_WZFW" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KeTi5_WZFW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KeTi5_WZFW" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Console" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KeTi5_WZFW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KeTi5_WZFW" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KeTi5_WZFW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KeTi5_WZFW" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KeTi5_WZFW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KeTi5_WZFW" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KeTi5_WZFW" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KeTi5_WZFW" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
-  </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="menu-btn&#9;null&#9;null&#10;apiGetAllUserNewLocationList&#9;null&#9;null&#10;we&#9;FILE&#9;file://E:/xampp/htdocs/PLSCP/routes/web.php&#10;web&#9;null&#9;null&#10;W&#9;FILE&#9;file://E:/xampp/htdocs/PLSCP/routes/web.php&#10;Api&#9;FILE&#9;file://E:/xampp/htdocs/PLSCP/app/Http/Controllers/ApiController.php&#10;Pa&#9;FILE&#9;file://E:/xampp/htdocs/PLSCP/app/Http/Controllers/PageController.php&#10;app.&#9;FILE&#9;file://E:/xampp/htdocs/PLSCP/config/app.php" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/map" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\xampp\htdocs\PLSCP\resources\views\map" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\xampp\htdocs\KeTi5_WZFW\resources\views\map" />
       <recent name="E:\xampp\htdocs\KeTi5_WZFW\app" />
       <recent name="E:\xampp\htdocs\PLSCP\public\js" />
       <recent name="E:\xampp\htdocs\PLSCP\public\css" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\xampp\htdocs\PLSCP\resources\views\map" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -361,339 +173,34 @@
       <workItem from="1559182947707" duration="656000" />
       <workItem from="1559806683563" duration="596000" />
       <workItem from="1560327186815" duration="599000" />
-      <workItem from="1563852623628" duration="11908000" />
+      <workItem from="1563852623628" duration="12100000" />
+      <workItem from="1563955550869" duration="3238000" />
+      <workItem from="1564057661273" duration="632000" />
+      <workItem from="1565613774560" duration="469000" />
+      <workItem from="1568521470214" duration="2314000" />
+      <workItem from="1568632703619" duration="7134000" />
+      <workItem from="1568707984646" duration="22881000" />
+      <workItem from="1568775751217" duration="5392000" />
+      <workItem from="1568858240663" duration="8007000" />
+      <workItem from="1568946259283" duration="1206000" />
+      <workItem from="1568964223444" duration="1545000" />
     </task>
     <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="210630000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16868381" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.16091955" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32884097" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" />
-    </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16868381" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.16091955" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32884097" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Desktop/test.html" />
-    <entry file="file://D:/硕士/研二/室内定位/大众位置服务终端云端/热力图扩展/热力图.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/ClickMapPoint1.html" />
-    <entry file="file://$PROJECT_DIR$/resources/views/map/ClickMapPoint.html" />
-    <entry file="file://$USER_HOME$/Desktop/map-c7.blade.php" />
-    <entry file="file://$PROJECT_DIR$/resources/views/heatmap/bluSignalHeatMap.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="151" column="36" selection-start-line="151" selection-start-column="25" selection-end-line="151" selection-end-column="36" />
-          <folding>
-            <element signature="e#5626#5708#0#HTML" />
-            <element signature="e#5742#9139#0#HTML" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/heatmap/vdopHeatMap.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2793" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/common/validator.blade.php" />
-    <entry file="file://$PROJECT_DIR$/resources/views/common/message.blade.php" />
-    <entry file="file://$PROJECT_DIR$/resources/views/user/update.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/heatmap/hdopHeatMap.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4731">
-          <caret line="249" column="7" selection-start-line="249" selection-start-column="7" selection-end-line="249" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/user/add.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1406">
-          <caret line="74" column="22" selection-start-line="34" selection-start-column="15" selection-end-line="74" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/heatmap/peopleHeatMap.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1349">
-          <caret line="71" column="26" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/search/extentSearch.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/push/one2one.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4560">
-          <caret line="240" column="12" selection-start-line="240" selection-start-column="12" selection-end-line="240" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/common/layouts.blade.php" />
-    <entry file="file://$PROJECT_DIR$/resources/views/search/nameSearch.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/common/index.blade.php" />
-    <entry file="file://$PROJECT_DIR$/resources/views/user/detail.blade.php" />
-    <entry file="file://$PROJECT_DIR$/resources/views/map/normalmap.blade.php" />
-    <entry file="file://$PROJECT_DIR$/resources/views/push/one2more.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2413">
-          <caret line="127" column="43" selection-start-line="127" selection-start-column="31" selection-end-line="127" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="218" column="55" selection-start-line="218" selection-start-column="55" selection-end-line="218" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/excel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/user/list.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="81" column="31" selection-start-line="81" selection-start-column="31" selection-end-line="81" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Group.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/HeatMapData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Obs.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="17" column="32" lean-forward="true" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PageController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3700">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
-          <folding>
-            <element signature="e#40#54#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/map/userTrailC7.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4446">
-          <caret line="234" selection-start-line="234" selection-end-line="234" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/map/userRtTrail331.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4731">
-          <caret line="249" column="25" selection-start-line="249" selection-start-column="25" selection-end-line="249" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/map/userTrail331.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1121">
-          <caret line="59" column="13" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/map/userRtTrailC7.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="243" selection-start-line="243" selection-end-line="243" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/map/normalmapC7.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1197">
-          <caret line="226" selection-start-line="226" selection-end-line="368" selection-end-column="9" />
-          <folding>
-            <element signature="n#style#2;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#script#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/map/routemap.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-238">
-          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/硕士/研二/室内定位/大众位置服务终端云端/Ips_api/Sample Code/AddLayer.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://D:/硕士/研二/室内定位/大众位置服务终端云端/Ips_api/Sample Code/ClickMapPoint.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://D:/硕士/研二/室内定位/大众位置服务终端云端/Ips_api/Sample Code/Graphics.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://D:/硕士/研二/室内定位/大众位置服务终端云端/Ips_api/Sample Code/HeatMap.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://D:/硕士/研二/室内定位/大众位置服务终端云端/Ips_api/Sample Code/IpsNetworkAnalysis.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://D:/硕士/研二/室内定位/大众位置服务终端云端/Ips_api/Sample Code/MeasureWidget.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://D:/硕士/研二/室内定位/大众位置服务终端云端/Ips_api/Sample Code/NetworkAnalysis.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="142" column="7" selection-start-line="142" selection-start-column="7" selection-end-line="142" selection-end-column="7" />
-          <folding>
-            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#script#1;n#head#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/map/normalmap331.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="28" column="4" lean-forward="true" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/硕士/研二/室内定位/大众位置服务终端云端/Ips_api/Sample Code/FirstMap.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bootstrap/app.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Past_Locations.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/TerminalUser.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="79" column="30" selection-start-line="79" selection-start-column="30" selection-end-line="79" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ApiController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="90" column="50" lean-forward="true" selection-start-line="90" selection-start-column="50" selection-end-line="90" selection-end-column="50" />
-          <folding>
-            <element signature="e#136#156#0#PHP" expanded="true" />
-            <element signature="e#489#544#0#PHP" />
-            <element signature="e#588#1078#0#PHP" />
-            <element signature="e#588#1483#0#PHP" />
-            <element signature="e#1704#2258#0#PHP" />
-            <element signature="e#4056#4986#0#PHP" />
-            <element signature="e#5027#5266#0#PHP" />
-            <element signature="e#5297#6187#0#PHP" />
-            <element signature="e#7389#9414#0#PHP" />
-            <element signature="e#6379#6806#0#PHP" />
-            <element signature="e#8377#8537#0#PHP" />
-            <element signature="e#9116#9836#0#PHP" />
-            <element signature="e#9880#10004#0#PHP" />
-            <element signature="e#10074#11215#0#PHP" />
-            <element signature="e#11251#11871#0#PHP" />
-            <element signature="e#11937#13435#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

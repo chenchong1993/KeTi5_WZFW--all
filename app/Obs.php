@@ -15,6 +15,5 @@ use Illuminate\Database\Eloquent\Model;
 class Obs extends Model
 {
     protected $table = "obs";
-    public $timestamps =  false;
 
 }

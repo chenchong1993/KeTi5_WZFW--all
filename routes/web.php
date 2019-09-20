@@ -48,10 +48,14 @@ Route::group(['middleware' => 'web'], function () {
     Route::any('routeMap','PageController@routeMap'); //路径规划
     Route::any('normalMap331','PageController@normalMap331'); //331用户实时分布
     Route::any('normalMapC7','PageController@normalMapC7'); //C7用户实时分布
+    Route::any('normalMapATLS','PageController@normalMapATLS'); //奥特莱斯用户实时分布
     Route::any('userTrail331/','PageController@userTrail331'); //331 历史轨迹
     Route::any('userTrailC7/','PageController@userTrailC7'); //C7 历史轨迹
-    Route::any('userRtTrail331/','PageController@userRtTrail331'); //C7 实时轨迹
+    Route::any('userTrailATLS/','PageController@userTrailATLS'); //奥特莱斯历史轨迹
+    Route::any('userRtTrail331/','PageController@userRtTrail331'); //331 实时轨迹
+    Route::any('userRtTrailATLS/','PageController@userRtTrailATLS'); //奥特莱斯实时轨迹
     Route::any('userRtTrailC7/','PageController@userRtTrailC7'); //C7 实时轨迹
+    Route::any('electricFenceDemo','PageController@electricFenceDemo'); //331用户实时分布
     //普通查询
     Route::any('nameSearch','PageController@nameSearch'); //名称查询
     Route::any('extentSearch','PageController@extentSearch'); //扩展查询
@@ -69,6 +73,9 @@ Route::group(['middleware' => 'web'], function () {
     Route::any('peopleHeatMap','PageController@peopleHeatMap'); //桥西区人口分布热力图
     Route::any('peopleIn331','PageController@peopleIn331'); //331人口分布热力图
 
+    //测试路由
+    Route::any('test','PageController@test'); //331人口分布热力图
+
     Route::group(['prefix' => 'api'], function () {
 
         Route::post('apiTest', 'ApiController@apiTest');//测试
@@ -81,7 +88,7 @@ Route::group(['middleware' => 'web'], function () {
         Route::post('apiAddTerminalUserLocation', 'ApiController@apiAddTerminalUserLocation');//终端上传用户坐标
         Route::post('apiNameSeach', 'ApiController@apiNameSeach');//名称搜索接口
         Route::get('apiGetAllUserNewLocationList', 'ApiController@apiGetAllUserNewLocationList');//从数据库中获取用户位置信息
-        Route::post('apiAddObs', 'ApiController@apiAddObs');//获取观测数据
+        Route::post('apiAddObs', 'ApiController@apiAddObs');//终端观测数据
         Route::any('heatMapData', 'ApiController@heatMapData');//读热力图数据
         Route::any('fileExport/','ApiController@fileExport'); //Excel导出
     });

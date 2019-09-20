@@ -1,55 +1,63 @@
 <!DOCTYPE html>
-<html style="height: 100%">
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>大众位置服务云平台</title>
+    <meta charset=utf-8"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+    <title>奥特莱斯地图 </title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- MetisMenu CSS -->
-    <link href="/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="/dist/css/sb-admin-2.css" rel="stylesheet">
-    <!-- Custom Fonts -->
-    <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<!--    {{--HUI的图标库--}}-->
-    <link rel="stylesheet" type="text/css" href="/Hui-iconfont/1.0.8/iconfont.css" />
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <link rel="stylesheet" type="text/css" href="/Ips_api_javascript/dijit/themes/tundra/tundra.css"/>
-    <link rel="stylesheet" type="text/css" href="/Ips_api_javascript/esri/css/esri.css" />
-    <link rel="stylesheet" type="text/css" href="/Ips_api_javascript/fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="/Ips_api_javascript/Ips/css/widget.css" />
-    <script type="text/javascript" src="/Ips_api_javascript/init.js"></script>
-    <script src="/vendor/jquery/jquery.min.js"></script>
-    <style type="text/css">
-        /*.user-msg{position:absolute;left:810px;top:10px;z-index:auto;width:500px;background-color:#f6f6f6}*/
-        .map-col{position:absolute;left:10px;top:0;z-index:0;width:1200px;height:800px;background-color:#f6f6f6}
+    <!-- 菜单开始 -->
+    <link rel="stylesheet" type="text/css" href="/css/menu/style.css"/>
+    <!-- 菜单结束 -->
+
+    <!-- 提示框开始 -->
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 提示框结束 -->
+
+    <!-- 地图开始 -->
+    <link rel="stylesheet" type="text/css" href="Ips_api_javascript/dijit/themes/tundra/tundra.css"/>
+    <link rel="stylesheet" type="text/css" href="Ips_api_javascript/esri/css/esri.css"/>
+    <link rel="stylesheet" type="text/css" href="Ips_api_javascript/fonts/font-awesome-4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="Ips_api_javascript/Ips/css/widget.css"/>
+    <!-- 地图结束 -->
+    {{--拖动框--}}
+    <link rel="stylesheet" type="text/css" href="/css/box.css">
+
+    <style>
+        html, body, .map {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+        }
     </style>
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- 提示框开始 -->
+    <script src="/js/notify/bootstrap.min.js"></script>
+    <script src="/js/notify/hullabaloo.js"></script>
+    <!-- 提示框结束 -->
+
+    <!-- 331地图 -->
+    <script type="text/javascript" src="Ips_api_javascript/init.js"></script>
+    <!-- 331地图 -->
+
+    <!-- tools -->
+    <script type="text/javascript" src="/js/tools.js"></script>
+    <!-- tools-->
+    {{--拖动框--}}
+    <script type="text/javascript" src="js/box.js"></script>
+
 </head>
-<body>
+
+<body class="tundra">
 <style>
     .menu-btn {
-        position: fixed;top:30px;left:900px;font-size: 18px;
+        position: fixed;top:30px;right: 16%;font-size: 18px;
     }
 </style>
-<style>
-    html, body, #map{
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-    }
-</style>
-
 
 {{--操作导航条--}}
 <style type="text/css">
@@ -205,7 +213,7 @@
     }
 
 </style>
-<div class="nav" style="z-index: 5; position: fixed ;right:16%;top: 7%">
+<div  style="z-index: 5; position: fixed ;right:16%;top: 9%">
     <ul class="nav1" style="margin-top:0">
         <li class="li1 caozuo"><a href="">转到其他地图</a>
             <ul class="nav2">
@@ -220,18 +228,36 @@
     </ul>
 </div>
 {{--操作导航条--}}
-<div class="row">
-    <div class="map-col">
-        <div id="map"></div>
-        <h2 class="menu-btn" style="left: 43%;font-size: 35px;color: #0c0c0c;top: 0">C7用户位置分布</h2>
+<div class="row" style="height: 100%">
+
+    <div id="map_atls_1" class="col-md-6">
+        <h5 style="position: absolute; left: 50%;top: 5%;z-index: 10">一层</h5>
     </div>
+
+    <div id="map_atls_2" class="col-md-6">
+        <h5 style="position: absolute; left: 50%;top: 5%;z-index: 10">二层</h5>
+    </div>
+
 </div>
+
+</div>
+</body>
+
 <script>
-    /**
-     * 定义全局变量
-     **/
+
+    //331地图
+    // 初始化全局参数
+    var HTHT_SERVER_IP = "121.28.103.199:9078"; //航天宏图服务器地址
+    var HTHT_TYPE_LOGIN_SCUUESS = 102 //航天宏图消息类型:登录成功
+    var HTHT_TYPE_RECEIVE_MSG = 1; //航天宏图消息类型:收到消息
+    var HELLO_STR = "系统初始化成功！"; //初始化欢迎语句
+    var ERR_MSG = "您正处于危险区域！"//危险区域发送的信息
+
     var INTERVAL_TIME = 1; //数据刷新间隔时间
-    var POINTSIZE = 24;    //默认图片大小为24*24
+    var POINTSIZE = 22;    //默认图片大小为24*24
+    var POINTLAT = 38.0;
+    var POINTLNG = 114.0;
+
     /**
      * 跳转到用户历史轨迹页面
      * */
@@ -239,13 +265,13 @@
         // console.log("2:",uid+" ");
         var startTime = $('#startTime').val();
         var endTime = $('#endTime').val();
-        window.location.href = '/userTrailC7?uid=' + uid + '&startTime=' + startTime +'&endTime=' + endTime;
+        window.location.href = '/userTrailATLS?uid=' + uid + '&startTime=' + startTime +'&endTime=' + endTime;
     }
     /**
      * 跳转到用户实时轨迹页面
      * */
     function catUserRtTrail(uid) {
-        window.location.href = '/userRtTrailC7?uid=' + uid;
+        window.location.href = '/userRtTrailATLS?uid=' + uid;
     }
     /**
      * 导出文件
@@ -259,43 +285,78 @@
         window.location.href = '/api/fileExport?uid=' + uid + '&startTime=' + startTime +'&endTime=' + endTime;
 
     }
-
     /**
-     * 地图需求文件
+     * 拖动框
      */
+    $(document).ready(function () {
+        $(".box").bg_move({
+            move: '.title',
+            closed: '.close',
+            size: 6
+        });
+    });
+    //websocket 连接对象
+    var conn;
+    var map1;
+    var map2;
+
+    //地图
     require([
-        "esri/map",
-        "esri/layers/ArcGISDynamicMapServiceLayer",
-        "esri/layers/GraphicsLayer",
+        "Ips/map",
+        "Ips/layers/DynamicMapServiceLayer",
+        "Ips/layers/FeatureLayer",
+        "Ips/layers/GraphicsLayer",
         "esri/graphic",
         "esri/SpatialReference",
-        "esri/InfoTemplate",
         "esri/geometry/Point",
-        "esri/symbols/PictureMarkerSymbol",
+        "esri/geometry/Polyline",
+        "esri/geometry/Polygon",
+        "esri/InfoTemplate",
         "esri/symbols/SimpleMarkerSymbol",
         "esri/symbols/SimpleLineSymbol",
+        "esri/symbols/SimpleFillSymbol",
+        "esri/symbols/PictureMarkerSymbol",
+        "esri/symbols/TextSymbol",
         "dojo/colors",
         "dojo/on",
+        "dojo/dom",
         "dojo/domReady!"
-    ], function (Map, ArcGISDynamicMapServiceLayer,GraphicsLayer,Graphic,SpatialReference,InfoTemplate,Point,PictureMarkerSymbol,
-                 SimpleMarkerSymbol,SimpleLineSymbol,Color,on) {
-        /**
-         * 定义地图，并设定必要参数
-         */
-        var map = new Map("map", {
-            center: new Point(538264,4212780, new SpatialReference({ wkid: 4547})),
-            logo:false
+    ], function (Map, DynamicMapServiceLayer, FeatureLayer, GraphicsLayer, Graphic, SpatialReference,Point, Polyline, Polygon, InfoTemplate, SimpleMarkerSymbol, SimpleLineSymbol,
+                 SimpleFillSymbol, PictureMarkerSymbol, TextSymbol, Color, on, dom) {
 
+
+        //-----------------------------一层-------------------------------------
+        map1 = new Map("map_atls_1", {
+            center: new Point(534467,4202820, new SpatialReference({ wkid: 4547})),
+            logo: false
         });
-        /**
-         * 初始化楼层平面图
-         */
-        var C7 = new ArcGISDynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/C7/NewC7Map/MapServer");
-        map.addLayer(C7);
-        /**
-         * 定义点图层
-         */
-        var pointLayerC7 = new GraphicsLayer();
+
+        //初始化F1楼层平面图
+        var f1 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/outlets/outlets1f/MapServer");
+        // var f1 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/outlets/outlets2f/MapServer");
+        map1.addLayer(f1);
+
+        //初始化pointLayer 用户数据点图层
+        var pointLayerF1 = new GraphicsLayer();
+
+        map1.addLayer(pointLayerF1);
+
+
+        //-----------------------------二层-------------------------------------
+        map2 = new Map("map_atls_2", {
+            logo: false
+        });
+
+        //初始化F1楼层平面图
+        var f2 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/outlets/outlets2f/MapServer");
+        map2.addLayer(f2);
+
+        //初始化pointLayer 用户数据点图层
+        var pointLayerF2 = new GraphicsLayer();
+
+        map2.addLayer(pointLayerF2);
+
+
         /**
          * 添加点图标
          * */
@@ -325,27 +386,37 @@
                 + "<button class='' onclick=exportFlie(" + "'" + uid + "'" + ") > 导出该时段数据</button>"
             );
             var picgr = new Graphic(picpoint, picSymbol, attr, infoTemplate);
-            pointLayerC7.add(picgr);
-            map.addLayer(pointLayerC7);
+            if (floor == 1){
+                pointLayerF1.add(picgr);
+                map1.addLayer(pointLayerF1);
+            }
+            if (floor == 2){
+                pointLayerF2.add(picgr);
+                map2.addLayer(pointLayerF2);
+            }
         }
-
-         /**
+        /**
          * 从数据库读取用户列表和用户最新坐标并更新界面
          */
-
         function getDataAndRefresh() {
             // 从云端读取数据
             $.get("/api/apiGetAllUserNewLocationList",
                 {},
                 function (dat, status) {
+                    console.log(dat);
                     if (dat.status == 0) {
                         // 删除数据
-                        pointLayerC7.clear();
+                        pointLayerF1.clear();
+                        pointLayerF2.clear();
+                        //重绘
+                        pointLayerF1.redraw();
+                        pointLayerF2.redraw();
                         // 添加人
                         //注销掉因为先单用户测试
                         for (var i in dat.data) {
-                            // for (var i=0; i<5; i++) {
-                            // console.log(dat.data[i]);
+                            console.log(dat);
+                            // for (var i=5; i<10; i++) {
+                            // console.log(dat.data[i].username);
                             addUserPoint(
                                 dat.data[i].id,
                                 dat.data[i].uid,
@@ -353,6 +424,7 @@
                                 dat.data[i].x,
                                 dat.data[i].name,
                                 dat.data[i].phone,
+                                dat.data[i].floor,
                                 i
                             );
                         }
@@ -362,13 +434,18 @@
                 }
             );
         }
-
         /**
          * 刷新频率
          */
-        setInterval(getDataAndRefresh, (INTERVAL_TIME * 1000))
-    });
-</script>
+        setInterval(getDataAndRefresh, (INTERVAL_TIME * 1000));
 
-</body>
+        //显示初始化成功
+        notify(HELLO_STR, "sys");
+
+    });
+
+
+
+
+</script>
 </html>

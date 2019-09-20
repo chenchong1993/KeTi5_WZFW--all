@@ -322,12 +322,16 @@
         var f1 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/331/floorone/MapServer");
         var f2 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/331/floortwo/MapServer");
         var f3 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/331/floorthree/MapServer");
+        var knowPointF2 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/331/knownpoint2/MapServer");
+        var knowPointF3 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/331/knownpoint3/MapServer");
         var grid1 = new FeatureLayer("http://121.28.103.199:5567/arcgis/rest/services/331/grid/MapServer/0");
         var grid2 = new FeatureLayer("http://121.28.103.199:5567/arcgis/rest/services/331/grid/MapServer/0");
         var grid3 = new FeatureLayer("http://121.28.103.199:5567/arcgis/rest/services/331/grid/MapServer/0");
         map1.addLayer(f1);
         map2.addLayer(f2);
+        map2.addLayer(knowPointF2);
         map3.addLayer(f3);
+        map3.addLayer(knowPointF3);
         map1.addLayer(grid1);
         map2.addLayer(grid2);
         map3.addLayer(grid3);

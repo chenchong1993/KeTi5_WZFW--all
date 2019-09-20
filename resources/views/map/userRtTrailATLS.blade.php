@@ -1,50 +1,61 @@
 <!DOCTYPE html>
-<html style="height: 100%">
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>大众位置服务云平台</title>
+    <meta charset=utf-8"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+    <title>奥特莱斯地图 </title>
 
-    {{--引入地图依赖的库--}}
-    <link rel="stylesheet" type="text/css" href="/Ips_api_javascript/dijit/themes/tundra/tundra.css"/>
-    <link rel="stylesheet" type="text/css" href="/Ips_api_javascript/esri/css/esri.css" />
-    <link rel="stylesheet" type="text/css" href="/Ips_api_javascript/fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="/Ips_api_javascript/Ips/css/widget.css" />
+    <!-- 菜单开始 -->
+    <link rel="stylesheet" type="text/css" href="/css/menu/style.css"/>
+    <!-- 菜单结束 -->
+
+    <!-- 提示框开始 -->
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 提示框结束 -->
+
+    <!-- 地图开始 -->
+    <link rel="stylesheet" type="text/css" href="Ips_api_javascript/dijit/themes/tundra/tundra.css"/>
+    <link rel="stylesheet" type="text/css" href="Ips_api_javascript/esri/css/esri.css"/>
+    <link rel="stylesheet" type="text/css" href="Ips_api_javascript/fonts/font-awesome-4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="Ips_api_javascript/Ips/css/widget.css"/>
+    <!-- 地图结束 -->
     {{--拖动框--}}
     <link rel="stylesheet" type="text/css" href="/css/box.css">
-    {{--修改三张地图尺寸--}}
-    <style type="text/css">
-        /*.user-msg{position:absolute;left:810px;top:10px;z-index:auto;width:500px;background-color:#f6f6f6}*/
-        .map1-col{position:absolute;left:0;top:0;right:0;background-color:#f6f6f6}
-        .map2-col{position:absolute;left:0;top:400px;right: 0;background-color:#f6f6f6}
-        .map3-col{position:absolute;left:0;top:800px ;right: 60%;background-color:#f6f6f6}
+
+    <style>
+        html, body, .map {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+        }
     </style>
 
-
-    {{--引入JS部分--}}
-    {{--引入jquery--}}
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
-    {{--地图--}}
-    <script type="text/javascript" src="/Ips_api_javascript/init.js"></script>
+    <!-- 提示框开始 -->
+    <script src="/js/notify/bootstrap.min.js"></script>
+    <script src="/js/notify/hullabaloo.js"></script>
+    <!-- 提示框结束 -->
+
+    <!-- 331地图 -->
+    <script type="text/javascript" src="Ips_api_javascript/init.js"></script>
+    <!-- 331地图 -->
+
+    <!-- tools -->
+    <script type="text/javascript" src="/js/tools.js"></script>
+    <!-- tools-->
     {{--拖动框--}}
     <script type="text/javascript" src="js/box.js"></script>
+
 </head>
-<body>
+
+<body class="tundra">
 <style>
     .menu-btn {
         position: fixed;top:30px;right: 16%;font-size: 18px;
-    }
-</style>
-<style>
-    html, body, #map1,map2,map3{
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
     }
 </style>
 
@@ -202,11 +213,11 @@
     }
 
 </style>
-<div class="nav" style="z-index: 5; position: fixed ;right:16%;top: 7%">
+<div  style="z-index: 5; position: fixed ;right:16%;top: 9%">
     <ul class="nav1" style="margin-top:0">
         <li class="li1 caozuo"><a href="">操作</a>
             <ul class="nav2">
-                <li class="li2"><a href="{{ url('normalMap331')}}">返回用户分布</a>
+                <li class="li2"><a href="{{ url('normalMapATLS')}}">返回用户分布</a>
                 </li>
                 <li class="li2" ><a href="#" id="showClean">清除轨迹</a>
                 </li>
@@ -230,23 +241,31 @@
 
 </div>
 {{--拖动框--}}
+<div class="row" style="height: 100%">
 
-<div class="row">
-    <div class="map1-col">
-        <div id="map1"></div>
+    <div id="map_atls_1" class="col-md-6">
+        <h5 style="position: absolute; left: 50%;top: 5%;z-index: 10">一层</h5>
     </div>
-    <div class="map2-col">
-        <div id="map2"></div>
-        <h2 class="menu-btn" style="left: 43%;font-size: 35px;color: #0c0c0c;top: 10px">该用户实时位置</h2>
+
+    <div id="map_atls_2" class="col-md-6">
+        <h5 style="position: absolute; left: 50%;top: 5%;z-index: 10">二层</h5>
     </div>
-    <div class="map3-col">
-        <div id="map3"></div>
-    </div>
+
 </div>
-<script type="text/javascript">
-    /**
-     * 定义全局变量
-     **/
+
+</div>
+</body>
+
+<script>
+
+    //331地图
+    // 初始化全局参数
+    var HTHT_SERVER_IP = "121.28.103.199:9078"; //航天宏图服务器地址
+    var HTHT_TYPE_LOGIN_SCUUESS = 102 //航天宏图消息类型:登录成功
+    var HTHT_TYPE_RECEIVE_MSG = 1; //航天宏图消息类型:收到消息
+    var HELLO_STR = "系统初始化成功！"; //初始化欢迎语句
+    var ERR_MSG = "您正处于危险区域！"//危险区域发送的信息
+
     var INTERVAL_TIME = 1; //数据刷新间隔时间
     var POINTSIZE = 22;    //默认图片大小为24*24
     var POINTLAT = 38.0;
@@ -262,10 +281,12 @@
             size: 6
         });
     });
+    //websocket 连接对象
+    var conn;
+    var map1;
+    var map2;
 
-    /**
-     * 地图需求文件
-     */
+    //地图
     require([
         "Ips/map",
         "esri/geometry/Extent",
@@ -274,6 +295,7 @@
         "Ips/layers/FeatureLayer",
         "Ips/layers/GraphicsLayer",
         "esri/graphic",
+        "esri/SpatialReference",
         "esri/geometry/Point",
         "esri/geometry/Polyline",
         "esri/geometry/Polygon",
@@ -287,65 +309,41 @@
         "dojo/on",
         "dojo/dom",
         "dojo/domReady!"
-    ], function (Map, Extent,IpsMeasure,DynamicMapServiceLayer,FeatureLayer, GraphicsLayer, Graphic, Point, Polyline, Polygon, InfoTemplate, SimpleMarkerSymbol, SimpleLineSymbol,
+    ], function (Map, Extent,IpsMeasure,DynamicMapServiceLayer, FeatureLayer, GraphicsLayer, Graphic, SpatialReference, Point, Polyline, Polygon, InfoTemplate, SimpleMarkerSymbol, SimpleLineSymbol,
                  SimpleFillSymbol, PictureMarkerSymbol, TextSymbol, Color, on, dom) {
 
-        var initialExtent = new Extent({
-            "xmin": 114.348488, "ymin": 114.348832,
-            "xmax": 114.349324, "ymax": 114.348865,
-            "spatialReference": { "wkid": 4326 }
+
+        //-----------------------------一层-------------------------------------
+        map1 = new Map("map_atls_1", {
+            center: new Point(534467,4202820, new SpatialReference({ wkid: 4547})),
+            logo: false
         });
-        var initialExtentf3 = new Extent({
-            "xmin": 114.348488, "ymin": 114.348832,
-            "xmax": 114.3487591, "ymax": 114.348865,
-            "spatialReference": { "wkid": 4326 }
-        });
-        /**
-         * 定义三张地图，并设定必要参数
-         */
-        var map1 = new Map("map1", {
-            logo:false,
-            zoom:21,
-            extent:initialExtent,
-            center: [114.3489254,38.24772],
-        });
-        var map2 = new Map("map2", {
-            logo:false,
-            zoom:21,
-            extent:initialExtent,
-            center: [114.3489254,38.24772],
-        });
-        var map3 = new Map("map3", {
-            logo:false,
-            zoom:21,
-            extent:initialExtentf3,
-            center: [114.3486414,38.247735],
-        });
-        /**
-         * 初始化楼层平面图
-         */
-        var f1 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/331/floorone/MapServer");
-        var f2 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/331/floortwo/MapServer");
-        var f3 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/331/floorthree/MapServer");
-        var knowPointF2 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/331/knownpoint2/MapServer");
-        var knowPointF3 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/331/knownpoint3/MapServer");
-        var grid1 = new FeatureLayer("http://121.28.103.199:5567/arcgis/rest/services/331/grid/MapServer/0");
-        var grid2 = new FeatureLayer("http://121.28.103.199:5567/arcgis/rest/services/331/grid/MapServer/0");
-        var grid3 = new FeatureLayer("http://121.28.103.199:5567/arcgis/rest/services/331/grid/MapServer/0");
+
+        //初始化F1楼层平面图
+        var f1 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/outlets/outlets1f/MapServer");
+        // var f1 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/outlets/outlets2f/MapServer");
         map1.addLayer(f1);
-        map2.addLayer(f2);
-        map2.addLayer(knowPointF2);
-        map3.addLayer(f3);
-        map3.addLayer(knowPointF3);
-        map1.addLayer(grid1);
-        map2.addLayer(grid2);
-        map3.addLayer(grid3);
-        /**
-         * 定义点图层
-         */
+
+        //初始化pointLayer 用户数据点图层
         var pointLayerF1 = new GraphicsLayer();
+
+        map1.addLayer(pointLayerF1);
+
+
+        //-----------------------------二层-------------------------------------
+        map2 = new Map("map_atls_2", {
+            logo: false
+        });
+
+        //初始化F2楼层平面图
+        var f2 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/outlets/outlets2f/MapServer");
+        map2.addLayer(f2);
+
+        //初始化pointLayer 用户数据点图层
         var pointLayerF2 = new GraphicsLayer();
-        var pointLayerF3= new GraphicsLayer();
+
+        map2.addLayer(pointLayerF2);
+
 
         /**
          * 更新位置信息小部件
@@ -358,8 +356,8 @@
             var currlng = (curr_lng+ "").substring(0,12);
             var referlat = (refer_lat+ "").substring(0,11);
             var referlng = (refer_lng+ "").substring(0,12);
-            var d_lat = (((curr_lat-refer_lat)*111319.4907)+ "");
-            var d_lng = (((curr_lng-refer_lng)*111319.4907)+ "");
+            var d_lat = ((curr_lat-refer_lat)+ "");
+            var d_lng = ((curr_lng-refer_lng)+ "");
             var index_lat=d_lat.lastIndexOf(".");
             var index_lng=d_lng.lastIndexOf(".");
             d_lat = d_lat.substring(0,index_lat+4);
@@ -372,12 +370,11 @@
         on(dom.byId("showClean"),"click",function(){
             pointLayerF1.clear();
             pointLayerF2.clear();
-            pointLayerF3.clear();
         })
 
 
         on(dom.byId("showGetCoo"),"click",function () {
-            var click1,click2,click3;
+            var click1,click2;
             click1= on(map1,"click",function (evt) {
                 var point=evt.mapPoint;
                 POINTLAT = point.y;
@@ -385,7 +382,6 @@
                 console.log(point);
                 click1.remove();
                 click2.remove();
-                click3.remove();
             });
             click2= on(map2,"click",function (evt) {
                 var point=evt.mapPoint;
@@ -393,17 +389,7 @@
                 POINTLNG = point.x;
                 click1.remove();
                 click2.remove();
-                click3.remove();
             });
-            click3= on(map3,"click",function (evt) {
-                var point=evt.mapPoint;
-                POINTLAT = point.y;
-                POINTLNG = point.x;;
-                click1.remove();
-                click2.remove();
-                click3.remove();
-            })
-
         })
 
         /**
@@ -412,12 +398,14 @@
         function addUserPoint(id,uid, lng, lat, name, phone,floor,status) {
             //定义点的几何体
             //38.2477770 114.3489115
-            var picpoint = new Point(lng,lat);
+            console.log(lat);
+            console.log(lng);
+            console.log(status);
+            var picpoint = new Point(lng,lat, new SpatialReference({ wkid: 4547}));
             // //定义点的图片符号
-            var picSymbol;
-            var img_uri = "Ips_api_javascript/Ips/image/marker.png";
+            var img_uri="/Ips_api_javascript/Ips/image/marker.png";
 
-            picSymbol = new PictureMarkerSymbol(img_uri,POINTSIZE,POINTSIZE);
+            var picSymbol = new PictureMarkerSymbol(img_uri,POINTSIZE,POINTSIZE);
             //定义点的图片符号
             var attr = {"name": name, "phone": phone};
             //信息模板
@@ -435,10 +423,6 @@
             if (floor == 2){
                 pointLayerF2.add(picgr);
                 map2.addLayer(pointLayerF2);
-            }
-            if (floor == 3){
-                pointLayerF3.add(picgr);
-                map3.addLayer(pointLayerF3);
             }
         }
         /**
@@ -458,7 +442,6 @@
                         //重绘
                         pointLayerF1.redraw();
                         pointLayerF2.redraw();
-                        pointLayerF3.redraw();
                         // 添加人
                         //注销掉因为先单用户测试
                         for (var i in dat.data) {
@@ -468,43 +451,26 @@
                                 continue
                             }
 
-                            if (dat.data[i].floor == 3) {
-                                if ((38.24766 < dat.data[i].lat) && (dat.data[i].lat < 38.2478) && (114.3485 < dat.data[i].lng) && (dat.data[i].lng < 114.34871)) {
-                                    addUserPoint(
-                                        dat.data[i].id,
-                                        dat.data[i].uid,
-                                        dat.data[i].lng,
-                                        dat.data[i].lat,
-                                        dat.data[i].name,
-                                        dat.data[i].phone,
-                                        dat.data[i].floor,
-                                        i
-                                    );
-                                }
-                            } else {
-                                if ((38.24766 < dat.data[i].lat) && (dat.data[i].lat < 38.2478) && (114.3485 < dat.data[i].lng) && (dat.data[i].lng < 114.349238)) {
-                                    addUserPoint(
-                                        dat.data[i].id,
-                                        dat.data[i].uid,
-                                        dat.data[i].lng,
-                                        dat.data[i].lat,
-                                        dat.data[i].name,
-                                        dat.data[i].phone,
-                                        dat.data[i].floor,
-                                        i
-                                    );
-                                }
-                            }
+                            addUserPoint(
+                                dat.data[i].id,
+                                dat.data[i].uid,
+                                dat.data[i].y,
+                                dat.data[i].x,
+                                dat.data[i].name,
+                                dat.data[i].phone,
+                                dat.data[i].floor,
+                                i
+                            );
 
-                        updateLocationBox(
-                            dat.data[i].name,
-                            dat.data[i].lng,
-                            dat.data[i].lat,
-                            POINTLNG,
-                            POINTLAT,
-                            dat.data[i].floor,
-                            dat.data[i].location_method
-                        );
+                            updateLocationBox(
+                                dat.data[i].name,
+                                dat.data[i].y,
+                                dat.data[i].x,
+                                POINTLNG,
+                                POINTLAT,
+                                dat.data[i].floor,
+                                dat.data[i].location_method
+                            );
                         }
                     } else {
                         console.log('ajax error!');
@@ -516,8 +482,14 @@
          * 刷新频率
          */
         setInterval(getDataAndRefresh, (INTERVAL_TIME * 1000));
-    });
-</script>
 
-</body>
+        //显示初始化成功
+        notify(HELLO_STR, "sys");
+
+    });
+
+
+
+
+</script>
 </html>
