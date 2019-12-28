@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Laravel',
+    'name' => '大众位置服务云平台',
 
     /*
     |--------------------------------------------------------------------------

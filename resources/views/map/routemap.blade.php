@@ -51,13 +51,13 @@
     //NA服务配置
     var config={
         FFSserver:{
-            route1:"http://121.28.103.199:5567/arcgis/rest/services/331/network1/NAServer/route",
-            route2:"http://121.28.103.199:5567/arcgis/rest/services/331/network2/NAServer/route",
-            route3:"http://121.28.103.199:5567/arcgis/rest/services/331/network3/NAServer/route",
+            route1:"http://121.28.103.199:5567/arcgis/rest/services/C7/network1/NAServer/route",
+            route2:"http://121.28.103.199:5567/arcgis/rest/services/C7/network2/NAServer/route",
+            route3:"http://121.28.103.199:5567/arcgis/rest/services/C7/network3/NAServer/route"
         }
     };
     //楼层控制变量
-    var floor_num=1;
+    var floor_num=2;
     var map;
     require([
         "Ips/map",
@@ -71,7 +71,7 @@
             center: [114.3489254,38.24772],
         });
         //初始化F1楼层平面图
-        var f1 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/331/floorone/MapServer");
+        var f1 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/C7/c7floor2/MapServer");
         map.addLayer(f1);
         var networkanalysis = new IpsNetworkAnalysis({
             map: map

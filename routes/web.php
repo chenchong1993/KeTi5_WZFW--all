@@ -36,7 +36,7 @@ Route::group(['middleware' => 'web'], function () {
 
 //    Route::get('test', 'PageController@test');//测试
 
-    Route::get('index', 'PageController@index');
+    Route::get('index', 'PageController@index')->middleware('auth');//主页
     Route::get('welcome', 'PageController@welcome');
 
     //用户管理
@@ -56,6 +56,10 @@ Route::group(['middleware' => 'web'], function () {
     Route::any('userRtTrailATLS/','PageController@userRtTrailATLS'); //奥特莱斯实时轨迹
     Route::any('userRtTrailC7/','PageController@userRtTrailC7'); //C7 实时轨迹
     Route::any('electricFenceDemo','PageController@electricFenceDemo'); //331用户实时分布
+//    奥莱演示
+    Route::get('ATLSmap', 'PageController@ATLSmap');//奥特莱斯地图
+    Route::get('ATLSmapF2', 'PageController@ATLSmapF2');//奥特莱斯地图
+    Route::get('ATLSTriail', 'PageController@ATLSTriail');//奥特莱斯地图
     //普通查询
     Route::any('nameSearch','PageController@nameSearch'); //名称查询
     Route::any('extentSearch','PageController@extentSearch'); //扩展查询
@@ -91,9 +95,24 @@ Route::group(['middleware' => 'web'], function () {
         Route::post('apiAddObs', 'ApiController@apiAddObs');//终端观测数据
         Route::any('heatMapData', 'ApiController@heatMapData');//读热力图数据
         Route::any('fileExport/','ApiController@fileExport'); //Excel导出
+//        用于奥莱示范
+        Route::post('getUsersByName', 'ApiController@getUsersByName');//根据名字模糊查询用户
+        Route::post('getUsersByPhone', 'ApiController@getUsersByPhone');//根据手机号查询用户
+        Route::post('getUsersByUid', 'ApiController@getUsersByUid');//根据uid查询用户
+        Route::post('getCarByName', 'ApiController@getCarByName');//根据名字模糊查询用户
+        Route::post('msgTxAdd', 'ApiController@msgTxAdd');//添加发布信息
+        Route::post('msgRxAdd', 'ApiController@msgRxAdd');//添加接收信息
+//        用户电子围栏
+        Route::post('apiInFences', 'ApiController@apiInFences');//电子围栏示例项目，上传坐标
+        Route::get('apiGetLocationList', 'ApiController@apiGetLocationList');//电子围栏示例项目，获取坐标
     });
 
 });
 
+Route::get('/', 'PageController@index')->middleware('auth');
+Route::get('/home', 'PageController@index')->middleware('auth');
 
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

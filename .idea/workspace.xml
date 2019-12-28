@@ -94,19 +94,22 @@
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="menu-btn&#9;null&#9;null&#10;apiGetAllUserNewLocationList&#9;null&#9;null&#10;we&#9;FILE&#9;file://E:/xampp/htdocs/PLSCP/routes/web.php&#10;web&#9;null&#9;null&#10;W&#9;FILE&#9;file://E:/xampp/htdocs/PLSCP/routes/web.php&#10;Api&#9;FILE&#9;file://E:/xampp/htdocs/PLSCP/app/Http/Controllers/ApiController.php&#10;Pa&#9;FILE&#9;file://E:/xampp/htdocs/PLSCP/app/Http/Controllers/PageController.php&#10;app.&#9;FILE&#9;file://E:/xampp/htdocs/PLSCP/config/app.php" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/map" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../stationManage" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\xampp\htdocs\KeTi5_WZFW\resources\views\map" />
-      <recent name="E:\xampp\htdocs\KeTi5_WZFW\app" />
-      <recent name="E:\xampp\htdocs\PLSCP\public\js" />
-      <recent name="E:\xampp\htdocs\PLSCP\public\css" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\xampp\htdocs\KeTi5_WZFW\resources\views\ATLSdemo" />
+      <recent name="E:\xampp\htdocs\KeTi5_WZFW\resources\views" />
       <recent name="E:\xampp\htdocs\PLSCP\resources\views\map" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\xampp\htdocs\KeTi5_WZFW\resources\views\ATLSdemo" />
+      <recent name="E:\xampp\htdocs\KeTi5_WZFW\app" />
+      <recent name="E:\xampp\htdocs\KeTi5_WZFW\resources\views\map" />
+      <recent name="E:\xampp\htdocs\KeTi5_WZFW\app\Http\Controllers\Auth" />
+      <recent name="E:\xampp\htdocs\PLSCP\public\js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -183,7 +186,31 @@
       <workItem from="1568775751217" duration="5392000" />
       <workItem from="1568858240663" duration="8007000" />
       <workItem from="1568946259283" duration="1206000" />
-      <workItem from="1568964223444" duration="1545000" />
+      <workItem from="1568964223444" duration="2102000" />
+      <workItem from="1569224379478" duration="5139000" />
+      <workItem from="1569229717643" duration="60000" />
+      <workItem from="1569749222605" duration="142000" />
+      <workItem from="1571903833813" duration="1462000" />
+      <workItem from="1571930391868" duration="44000" />
+      <workItem from="1571988625320" duration="4963000" />
+      <workItem from="1572094602976" duration="2910000" />
+      <workItem from="1572154757074" duration="13000" />
+      <workItem from="1573568468478" duration="1633000" />
+      <workItem from="1574126720748" duration="17494000" />
+      <workItem from="1574152309321" duration="1262000" />
+      <workItem from="1574662307236" duration="1104000" />
+      <workItem from="1574668588358" duration="19580000" />
+      <workItem from="1574854942644" duration="1901000" />
+      <workItem from="1575248691302" duration="33000" />
+      <workItem from="1575858611625" duration="11678000" />
+      <workItem from="1575941771391" duration="9689000" />
+      <workItem from="1576029458646" duration="18028000" />
+      <workItem from="1576114458075" duration="7476000" />
+      <workItem from="1576648059668" duration="3917000" />
+      <workItem from="1576656528931" duration="2767000" />
+      <workItem from="1576755996385" duration="1301000" />
+      <workItem from="1576918747279" duration="808000" />
+      <workItem from="1577015540917" duration="10000" />
     </task>
     <servers />
   </component>

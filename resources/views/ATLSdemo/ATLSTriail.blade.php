@@ -219,10 +219,6 @@
             <ul class="nav2">
                 <li class="li2"><a href="{{ url('ATLSmap')}}">返回</a>
                 </li>
-{{--                <li class="li2"><a href="{{ url('normalMapATLS')}}">返回用户分布</a>--}}
-{{--                </li>--}}
-{{--                <li class="li2"><a href="{{ url('userRtTrailATLS').'?uid='.$userPositionLists[0]->uid }}">查看实时轨迹</a>--}}
-{{--                </li>--}}
                 <li class="li2" ><a href="#" id="showbigger">放大点</a>
                 </li>
                 <li class="li2" ><a href="#" id="showsmaller">缩小点</a>
@@ -392,7 +388,7 @@
         /**
          * 添加所有用户点到地图
          */
-        console.log({{$userPositionLists[0]->lng}});
+{{--        console.log({{$userPositionLists[x0]->lng}});--}}
         function addPointToMap() {
             @foreach($userPositionLists as $userPositionList)
             addUserPoint(

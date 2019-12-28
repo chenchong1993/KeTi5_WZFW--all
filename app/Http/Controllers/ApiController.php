@@ -7,11 +7,15 @@
  */
 
 namespace App\Http\Controllers;
+use App\Fences;
+use App\FenUser;
+use App\GridSendInfo;
 use App\HeatMapData;
 use App\Obs;
 use App\Past_Locations;
 use App\Sensor;
 use App\TerminalUser;
+use App\TerminalUserCar;
 use Couchbase\TerminalUserSettings;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -52,6 +56,25 @@ class ApiController extends Controller
         }
 
     }
+    /**
+     * [根据UID查询用户列表]
+     * @return [type] [description]
+     */
+    public function getUsersByUid(){
+        $validator = Validator::make(rq(), [
+            'uid' => 'required',
+        ]);
+
+        if ($validator->fails())
+            return err(1, $validator->messages());
+
+        $users = TerminalUser::where('uid', rq('uid'))->get();
+
+        return suc(['users'=>$users]);
+    }
+
+
+
     /**
      * 用户登陆接口
      */
@@ -331,10 +354,21 @@ class ApiController extends Controller
         $users =TerminalUser::where('uid',$uid)->first();
         if ($users){
 //            更新
-            $users->x = $x;
-            $users->y = $y;
-            $users->lng = $lng;
-            $users->lat = $lat;
+            if($x>1000000){
+                $users->x = $x;
+                $users->y = $y;
+            }elseif ($x<1000000){
+                $users->x = $y;
+                $users->y = $x;
+            }
+            if ($lat<100){
+                $users->lng = $lng;
+                $users->lat = $lat;
+            }
+            elseif ($lat>100){
+                $users->lng = $lat;
+                $users->lat = $lng;
+            }
             $users->floor = $floor;
             $users->orien = $orien;
             $users->location_method = $location_method;
@@ -345,10 +379,21 @@ class ApiController extends Controller
             //插入
             $users = new TerminalUser();
             $users->uid = $uid;
-            $users->x = $x;
-            $users->y = $y;
-            $users->lng = $lng;
-            $users->lat = $lat;
+            if($x>1000000){
+                $users->x = $x;
+                $users->y = $y;
+            }elseif ($x<1000000){
+                $users->x = $y;
+                $users->y = $x;
+            }
+            if ($lat<100){
+                $users->lng = $lng;
+                $users->lat = $lat;
+            }
+            elseif ($lat>100){
+                $users->lng = $lat;
+                $users->lat = $lng;
+            }
             $users->floor = $floor;
             $users->orien = $orien;
             $users->location_method = $location_method;
@@ -358,10 +403,21 @@ class ApiController extends Controller
 
         $userLocation = new Past_Locations();
         $userLocation->uid = $uid;
-        $userLocation->x = $x;
-        $userLocation->y = $y;
-        $userLocation->lng = $lng;
-        $userLocation->lat = $lat;
+        if($x>1000000){
+            $userLocation->x = $x;
+            $userLocation->y = $y;
+        }elseif ($x<1000000){
+            $userLocation->x = $y;
+            $userLocation->y = $x;
+        }
+        if ($lat<100){
+            $userLocation->lng = $lng;
+            $userLocation->lat = $lat;
+        }
+        elseif ($lat>100){
+            $userLocation->lng = $lat;
+            $userLocation->lat = $lng;
+        }
         $userLocation->floor = $floor;
         $userLocation->orien = $orien;
         $userLocation->location_method = $location_method;
@@ -416,7 +472,8 @@ class ApiController extends Controller
     public function apiGetAllUserNewLocationList()
     {
         $users = TerminalUser::get();
-        return suc($users);
+        $car = TerminalUserCar::get();
+        return suc(['users'=>$users,'cars'=>$car]);
     }
 
     /**
@@ -532,5 +589,151 @@ class ApiController extends Controller
         })->export('csv');
         die;
 
+    }
+
+
+//用于电子围栏项目
+    /**
+     * 上传位置并判断是否再围栏里
+     * 添加或者更新实时位置数据库
+     */
+    public function apiInFences()
+    {
+        $validator = Validator::make(rq(), [
+            //'uid' => 'required',
+            'lng' => 'required',
+            'lat' => 'required',
+        ]);
+
+        if ($validator->fails())
+            return err(1, $validator->messages());
+
+        $uid = 32770901179105290;//rq('uid');
+        $lng = rq('lng');
+        $lat = rq('lat');
+        $users =FenUser::where('uid',$uid)->first();
+//        $fences = Fences::where('uid',$uid)->first();获取围栏范围这里先写死吧
+        $lng1 = 116.29656182;
+        $lat1 = 40.04275177;
+        $lng2 = 116.29946182;
+        $lat2 = 40.04576177;
+        if (($lat>$lat1)&($lat<$lat2)&($lng>$lng1)&($lng<$lng2)){
+            $status = 1;//在围栏里状态为1
+        }else{
+            $status = 0;//不在围栏里状态为0
+        }
+        if ($users){
+//            更新
+            $users->lng = $lng;
+            $users->lat = $lat;
+            $users->status = $status;
+            $users->save();
+
+        }
+        else{
+            //插入
+            $users = new FenUserUser();
+            $users->uid = $uid;
+            $users->lng = $lng;
+            $users->lat = $lat;
+            $users->status = $status;
+            $users->save();
+
+        }
+        return $status;
+    }
+
+    /**
+     * 获取围栏用户坐标
+     */
+    public function apiGetLocationList(){
+        $users = FenUser::get();
+        return suc($users);
+    }
+
+
+    /**
+     * [根据名字模糊查询用户列表]
+     * @return [type] [description]
+     */
+    public function getUsersByName(){
+        $validator = Validator::make(rq(), [
+            'name' => 'required',
+            'floor' => 'required'
+        ]);
+
+        if ($validator->fails())
+            return err(1, $validator->messages());
+
+        $users = TerminalUser::where('name', 'like', '%'.rq('name').'%')->where('floor', '=', rq('floor').'%')->get();
+
+        return suc(['users'=>$users]);
+    }
+
+
+    /**
+     * [根据名字模糊查询用户列表]
+     * @return [type] [description]
+     */
+    public function getCarByName(){
+        $validator = Validator::make(rq(), [
+            'name' => 'required',
+        ]);
+
+        if ($validator->fails())
+            return err(1, $validator->messages());
+
+        $users = TerminalUserCar::where('name', 'like', '%'.rq('name').'%')->get();
+
+        return suc(['users'=>$users]);
+    }
+    /**
+     * 添加发布信息
+     */
+    public function msgTxAdd(){
+
+        $validator = Validator::make(rq(), [
+            'content' => 'required|max:255',
+        ]);
+
+        if ($validator->fails())
+            return err(1, $validator->messages());
+
+
+//        $msg_tx = new MsgTx();
+//        $msg_tx->content = rq('content');
+//
+//        if (rq('uid')) {
+//            $terminal_user = TerminalUser::where('uid',rq('uid'))->first();
+//            $msg_tx->terminal_user_id = $terminal_user->id;
+//        }
+//
+//        $msg_tx->save();
+
+        return suc();
+    }
+
+    /**
+     * 添加接收信息
+     */
+    public function msgRxAdd(){
+
+        $validator = Validator::make(rq(), [
+            'content' => 'required|max:255',
+            'uid' => 'required'
+        ]);
+
+        if ($validator->fails())
+            return err(1, $validator->messages());
+
+//        $msg_rx = new MsgRx();
+//        $msg_rx->content = rq('content');
+//
+//        $terminal_user = TerminalUser::where('uid',rq('uid'))->first();
+//        $msg_rx->terminal_user_id = $terminal_user->id;
+//
+//        $msg_rx->save();
+
+        return suc();
     }
 }

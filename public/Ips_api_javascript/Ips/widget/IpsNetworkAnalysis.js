@@ -71,7 +71,7 @@ define(["dojo/_base/declare",
                 //是否返回路径，此处必须返回
                 this.routeParas.returnRoutes = true;
                 //空间参考
-                this.routeParas.outSpatialReference = new SpatialReference(4326);
+                this.routeParas.outSpatialReference = map.SpatialReference;
             },
             addStopPoint:function () {
                 this.selectPointID = 1;

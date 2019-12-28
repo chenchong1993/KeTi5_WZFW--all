@@ -45,9 +45,22 @@
                 <ul class="cl">
                     <li>超级管理员</li>
                     <li class="dropDown dropDown_hover">
-                        <a href="#" class="dropDown_A">admin <i class="Hui-iconfont">&#xe6d5;</i></a>
+                        {{--                        <a href="#" class="dropDown_A">admin <i class="Hui-iconfont">&#xe6d5;</i></a>--}}
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
                         <ul class="dropDown-menu menu radius box-shadow">
-                            <li><a href="#">退出</a></li>
+                            <li>
+                                <a href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    退出
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </li>
                         </ul>
                     </li>
                     <li id="Hui-skin" class="dropDown right dropDown_hover"> <a href="javascript:;" class="dropDown_A" title="换肤"><i class="Hui-iconfont" style="font-size:18px">&#xe62a;</i></a>
@@ -83,8 +96,9 @@
             <dt><i class="Hui-iconfont">&#xe671;</i> 基础地图<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="{{ url('normalMap331')}}" data-title="基础地图" href="javascript:void(0)">基础地图</a></li>
+                    <li><a data-href="{{ url('normalMapC7')}}" data-title="基础地图" href="javascript:void(0)">基础地图</a></li>
                     <li><a data-href="{{ url('routeMap')}}" data-title="路径导航" href="javascript:void(0)">路径导航</a></li>
+                    <li><a data-href="{{ url('ATLSmap')}}" data-title="奥莱示范模拟" href="javascript:void(0)">奥莱示范模拟</a></li>
                     <li><a data-href="http://121.28.103.199:5561/iserver/iClient/for3D/webgl/zh/examples/S3M_331.html" data-title="三维地图浏览" href="javascript:void(0)">三维地图浏览</a></li>
                 </ul>
             </dd>

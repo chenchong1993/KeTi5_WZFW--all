@@ -149,6 +149,34 @@ class PageController extends Controller
     {
         return view('map.normalmapATLS');
     }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * 奥莱演示
+     */
+    public function ATLSmap()
+    {
+        return view('ATLSdemo.atls-map-F1');
+    }
+    public function ATLSmapF2()
+    {
+        return view('ATLSdemo.atls-map-F2');
+    }
+    public function ATLSTriail()
+    {
+        $uid = rq('uid');
+        $startTime = rq('startTime');//"2018-10-22 11:36:07";//rq('startTime');
+        $endTime = rq('endTime');//"2018-10-22 11:38:19";//rq('endTime');
+        if ($startTime== '' or $endTime == ''){
+            return '输入时间段为空';
+        }
+        $userPositionList = Past_Locations::where('uid' ,'=', $uid)->where('created_at', '>=', $startTime)->where('created_at', '<=', $endTime)->get();
+        if ($userPositionList->isEmpty()){
+            return '输入有误或该时间段内没有数据';
+        }
+//        echo $userPositionList;
+        return view('ATLSdemo.ATLSTriail',['userPositionLists' => $userPositionList]);
+    }
     /**
      * 奥特莱斯实时轨迹
      */
