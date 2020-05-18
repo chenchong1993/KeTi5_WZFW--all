@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no" />
+    <title>Test</title>
+    <link rel="stylesheet" type="text/css" href="Ips_api_javascript/dijit/themes/tundra/tundra.css"/>
+    <link rel="stylesheet" type="text/css" href="Ips_api_javascript/esri/css/esri.css" />
+    <link rel="stylesheet" type="text/css" href="Ips_api_javascript/fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="Ips_api_javascript/Ips/css/widget.css" />
+    <style>
+		html, body, #map {
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			height: 100%;
+        }
+    </style>
+    <script type="text/javascript" src="Ips_api_javascript/init.js"></script>
+    <script>
+      require([
+        "Ips/map",
+		"Ips/widget/IpsMeasure",
+        "dojo/domReady!"
+      ], function (Map,IpsMeasure){
+            var map = new Map("map", {
+                basemap: "topo",
+                center: [-122.45, 37.75],
+                zoom: 13,
+                logo:false
+			});
+			var measure = new IpsMeasure({
+				map:map
+			});
+			measure.startup();
+      });
+    </script>
+  </head>
+  <body class="tundra">
+    <div id="map"></div>
+  </body>
+</html>

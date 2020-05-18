@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0476da67-ce9d-4a83-be6c-352349cd054b" name="默认的" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,9 +15,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="PhpServers">
-    <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -91,38 +87,40 @@
   </component>
   <component name="ProjectId" id="1QrGnM9wIgDjPifB4AKpNTUDgks" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SearchEverywhereHistoryKey" value="menu-btn&#9;null&#9;null&#10;apiGetAllUserNewLocationList&#9;null&#9;null&#10;we&#9;FILE&#9;file://E:/xampp/htdocs/PLSCP/routes/web.php&#10;web&#9;null&#9;null&#10;W&#9;FILE&#9;file://E:/xampp/htdocs/PLSCP/routes/web.php&#10;Api&#9;FILE&#9;file://E:/xampp/htdocs/PLSCP/app/Http/Controllers/ApiController.php&#10;Pa&#9;FILE&#9;file://E:/xampp/htdocs/PLSCP/app/Http/Controllers/PageController.php&#10;app.&#9;FILE&#9;file://E:/xampp/htdocs/PLSCP/config/app.php" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../stationManage" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\xampp\htdocs\KeTi5_WZFW\resources\views\ATLSdemo" />
+      <recent name="G:\xampp\htdocs\KeTi5_WZFW\resources\views" />
       <recent name="E:\xampp\htdocs\KeTi5_WZFW\resources\views" />
+      <recent name="E:\xampp\htdocs\KeTi5_WZFW\resources\views\ATLSdemo" />
       <recent name="E:\xampp\htdocs\PLSCP\resources\views\map" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\xampp\htdocs\KeTi5_WZFW\resources\views\ATLSdemo" />
-      <recent name="E:\xampp\htdocs\KeTi5_WZFW\app" />
-      <recent name="E:\xampp\htdocs\KeTi5_WZFW\resources\views\map" />
-      <recent name="E:\xampp\htdocs\KeTi5_WZFW\app\Http\Controllers\Auth" />
-      <recent name="E:\xampp\htdocs\PLSCP\public\js" />
+      <recent name="G:\xampp\htdocs\KeTi5_WZFW\resources\views\areaPerception" />
+      <recent name="G:\xampp\htdocs\KeTi5_WZFW\app" />
+      <recent name="E:\xampp\htdocs\KeTi5_WZFW\resources\views\LocationAssessment" />
+      <recent name="E:\xampp\htdocs\KeTi5_WZFW\resources\views\c7map" />
+      <recent name="E:\xampp\htdocs\KeTi5_WZFW\resources\views\331map" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -211,6 +209,34 @@
       <workItem from="1576755996385" duration="1301000" />
       <workItem from="1576918747279" duration="808000" />
       <workItem from="1577015540917" duration="10000" />
+      <workItem from="1578470512906" duration="2750000" />
+      <workItem from="1578537795778" duration="10842000" />
+      <workItem from="1580704808504" duration="23000" />
+      <workItem from="1580867342073" duration="3719000" />
+      <workItem from="1582618099564" duration="2865000" />
+      <workItem from="1583297554201" duration="17472000" />
+      <workItem from="1585216708711" duration="1157000" />
+      <workItem from="1586317911034" duration="3487000" />
+      <workItem from="1586329798010" duration="7130000" />
+      <workItem from="1586414291780" duration="7407000" />
+      <workItem from="1586828305819" duration="10369000" />
+      <workItem from="1586932734279" duration="2520000" />
+      <workItem from="1587701830393" duration="24000" />
+      <workItem from="1587701967949" duration="609000" />
+      <workItem from="1588125358732" duration="2694000" />
+      <workItem from="1588909543582" duration="686000" />
+      <workItem from="1588918942831" duration="2909000" />
+      <workItem from="1588924193801" duration="2894000" />
+      <workItem from="1589012148997" duration="3922000" />
+      <workItem from="1589161913948" duration="19963000" />
+      <workItem from="1589248168274" duration="16585000" />
+      <workItem from="1589334882579" duration="9112000" />
+      <workItem from="1589355036768" duration="2100000" />
+      <workItem from="1589364474005" duration="5080000" />
+      <workItem from="1589442374282" duration="4612000" />
+      <workItem from="1589531159911" duration="1879000" />
+      <workItem from="1589764009138" duration="38000" />
+      <workItem from="1589767869573" duration="2204000" />
     </task>
     <servers />
   </component>
@@ -229,5 +255,35 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="523" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1589253792662">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="523" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1589253792662" />
+    <state x="499" y="168" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1589341496717">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="168" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1589341496717" />
+    <state x="549" y="168" key="FileChooserDialogImpl" timestamp="1589764045711">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1589764045711" />
+    <state x="599" y="336" key="NewPhpFileDialog" timestamp="1589013480314">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="599" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1589013480314" />
+    <state x="270" y="55" key="SettingsEditor" timestamp="1583306952918">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="270" y="55" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1583306952918" />
+    <state x="449" y="237" key="com.intellij.ide.util.TipDialog" timestamp="1589764009587">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="449" y="237" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1589764009587" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1589442451780">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1589442451780" />
   </component>
 </project>

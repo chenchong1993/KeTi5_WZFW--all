@@ -9,7 +9,7 @@
 namespace App;
 use Illuminate\Database\Eloquent\Model;
 
-class FenUser extends Model
+class areaPercept extends Model
 {
-    protected $table = "terminal_users_linshi";
+    protected $table = "areaPercept";
 }

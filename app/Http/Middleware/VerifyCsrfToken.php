@@ -28,7 +28,6 @@ class VerifyCsrfToken extends BaseVerifier
         'api/heatMapData',
         'api/apiAddRtUserLocation',
         'api/apiNameSeach',
-        'api/apiInFences',
         'api/apiGetLocationList',
         'api/getUsersByName',
         'api/getUsersByPhone',
@@ -36,5 +35,13 @@ class VerifyCsrfToken extends BaseVerifier
         'api/msgTxAdd',
         'api/msgRxAdd',
         'api/getCarByName',
+        'api/memberAdd',
+        'api/memberList',
+        'api/memberDel',
+        'api/apiAddGroup',
+        'api/apiDelGroup',
+        'api/apiAddPointList',
+        'api/apiGetUserAndArea',
+        'api/apiAreaDelete',
     ];
 }

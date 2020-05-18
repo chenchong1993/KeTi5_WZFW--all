@@ -28,7 +28,7 @@
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户管理 <span class="c-gray en">&gt;</span> 添加用户 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <article class="page-container">
-    <form class="form form-horizontal" id="form-article-add" method="post" action="{{url('/api/apiUserAdd')}}">
+    <div class="form form-horizontal" id="form-article-add">
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>用户名：</label>
             <div class="formControls col-xs-8 col-sm-9">
@@ -66,10 +66,10 @@
         </div>
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-                <button  class="btn btn-primary radius" type="submit" onClick="check();"><i class="Hui-iconfont">&#xe632;</i> 保存并提交</button>
+                <button  class="btn btn-primary radius" type="submit" onClick="save();"><i class="Hui-iconfont">&#xe632;</i> 保存并提交</button>
             </div>
         </div>
-    </form>
+    </div>
 </article>
 
 <!--_footer 作为公共模版分离出去-->
@@ -100,14 +100,13 @@
         // console.log(intype);
     }
 
-    function check(){
+    function save(){
         $(function(){
             $('.skin-minimal input').iCheck({
                 checkboxClass: 'icheckbox-blue',
                 radioClass: 'iradio-blue',
                 increaseArea: '20%'
             });
-            console.log("222222222222222");
             //表单验证
             $("#form-article-add").validate({
                 rules: {
@@ -132,6 +131,29 @@
                 success: "valid",
             });
         });
+        var username = document.getElementById("username");
+        username = username.value;
+        var password = document.getElementById("password");
+        password = password.value;
+        var phone = document.getElementById("phone");
+        phone = phone.value;
+        var sex = document.getElementById("sex");
+        sex = sex.value;
+        var email = document.getElementById("email");
+        email = email.value;
+        $.post("/api/apiUserAdd",
+            {'username':username,
+                'password':password,
+                'phone':phone,
+                'sex':sex,
+                'email':email,
+            },
+            function (dat, status){
+                layer.msg(dat.data,{icon:1,time:1000});
+            }
+        );
+
+
     }
 </script>
 <!--/请在上方写此页面业务相关的脚本-->

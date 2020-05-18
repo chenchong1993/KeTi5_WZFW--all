@@ -38,7 +38,6 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('index', 'PageController@index')->middleware('auth');//主页
     Route::get('welcome', 'PageController@welcome');
-
     //用户管理
     Route::get('userList','PageController@userList'); //用户列表
     Route::get('userOnlineList','PageController@userOnlineList'); //在线用户列表
@@ -56,6 +55,14 @@ Route::group(['middleware' => 'web'], function () {
     Route::any('userRtTrailATLS/','PageController@userRtTrailATLS'); //奥特莱斯实时轨迹
     Route::any('userRtTrailC7/','PageController@userRtTrailC7'); //C7 实时轨迹
     Route::any('electricFenceDemo','PageController@electricFenceDemo'); //331用户实时分布
+//    331分层
+    Route::get('map331', 'PageController@map331');//
+    Route::get('map331F2', 'PageController@map331F2');//
+    Route::get('map331F3', 'PageController@map331F3');//
+    //    c7分层
+    Route::get('mapC7', 'PageController@mapC7');//
+    Route::get('mapC7F2', 'PageController@mapC7F2');//
+    Route::get('mapC7F3', 'PageController@mapC7F3');//
 //    奥莱演示
     Route::get('ATLSmap', 'PageController@ATLSmap');//奥特莱斯地图
     Route::get('ATLSmapF2', 'PageController@ATLSmapF2');//奥特莱斯地图
@@ -66,6 +73,7 @@ Route::group(['middleware' => 'web'], function () {
     //消息推送
     Route::any('pushToOne','PageController@pushToOne'); //私信
     Route::any('pushToMore','PageController@pushToMore'); //群发
+    Route::any('groupList','PageController@groupList'); //群组列表
     //热力图
     Route::any('wifiSignalHeatMap','PageController@wifiSignalHeatMap'); //wifi信号强度热力图
     Route::any('bluSignalHeatMap','PageController@bluSignalHeatMap'); //蓝牙信号强度热力图
@@ -76,6 +84,11 @@ Route::group(['middleware' => 'web'], function () {
     Route::any('rssHeatMap','PageController@rssHeatMap'); //rss热力图
     Route::any('peopleHeatMap','PageController@peopleHeatMap'); //桥西区人口分布热力图
     Route::any('peopleIn331','PageController@peopleIn331'); //331人口分布热力图
+    //精准位置评估
+    Route::any('nameSelect','PageController@nameSelect');
+    Route::any('mapSelect/','PageController@mapSelect');
+    //区域感知
+    Route::any('areaPerception','PageController@areaPerception');
 
     //测试路由
     Route::any('test','PageController@test'); //331人口分布热力图
@@ -102,9 +115,16 @@ Route::group(['middleware' => 'web'], function () {
         Route::post('getCarByName', 'ApiController@getCarByName');//根据名字模糊查询用户
         Route::post('msgTxAdd', 'ApiController@msgTxAdd');//添加发布信息
         Route::post('msgRxAdd', 'ApiController@msgRxAdd');//添加接收信息
-//        用户电子围栏
-        Route::post('apiInFences', 'ApiController@apiInFences');//电子围栏示例项目，上传坐标
-        Route::get('apiGetLocationList', 'ApiController@apiGetLocationList');//电子围栏示例项目，获取坐标
+//        用于群组推送
+        Route::post('memberAdd', 'ApiController@memberAdd');//添加成员
+        Route::post('memberList', 'ApiController@memberList');//添加成员
+        Route::post('memberDel', 'ApiController@memberDel');//移除成员
+        Route::post('apiAddGroup', 'ApiController@apiAddGroup');//新建群族
+        Route::post('apiDelGroup', 'ApiController@apiDelGroup');//解散群组
+//        用户区域位置感知
+        Route::post('apiAddPointList', 'ApiController@apiAddPointList');//上传坐标
+        Route::any('apiGetUserAndArea', 'ApiController@apiGetUserAndArea');//获取坐标
+        Route::any('apiAreaDelete', 'ApiController@apiAreaDelete');//获取坐标
     });
 
 });

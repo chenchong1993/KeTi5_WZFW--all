@@ -215,19 +215,32 @@
 </style>
 <div  style="z-index: 5; position: fixed ;right:16%;top: 9%">
     <ul class="nav1" style="margin-top:0">
-        <li class="li1 caozuo"><a href="">转到其他地图</a>
+        <li class="li1 caozuo"><a href="">操作</a>
             <ul class="nav2">
-                <li class="li2"><a href="{{url('normalMap331')}}">331</a>
+{{--                <li class="li2"><a href="{{ url('normalMapATLS')}}">返回用户分布</a>--}}
+{{--                </li>--}}
+                <li class="li2" ><a href="#" id="showClean">清除轨迹</a>
                 </li>
-                <li class="li2"><a href="{{url('normalMapC7')}}">C7</a>
-                </li>
-                <li class="li2"><a href="{{url('normalMapATLS')}}">奥特莱斯</a>
+                <li class="li2" ><a href="#" id="showGetCoo">获取坐标</a>
                 </li>
             </ul>
         </li>
     </ul>
 </div>
 {{--操作导航条--}}
+
+{{--拖动框--}}
+<div class="box">
+    <div class="title">精准位置评估</div>
+    <div class="con">
+        <p>用户信息:<span id="user-msg"></span> </p>
+        <p>用户坐标:<span id="current-location"></span> </p>
+        <p>已知坐标:<span id="refer-location"></span> </p>
+        <p>定位偏差:<span id="offset-location"></span> </p>
+    </div>
+
+</div>
+{{--拖动框--}}
 <div class="row" style="height: 100%">
 
     <div id="map_atls_1" class="col-md-6">
@@ -259,33 +272,6 @@
     var POINTLNG = 114.0;
 
     /**
-     * 跳转到用户历史轨迹页面
-     * */
-    function catUserTrail(uid) {
-        // console.log("2:",uid+" ");
-        var startTime = $('#startTime').val();
-        var endTime = $('#endTime').val();
-        window.location.href = '/userTrailATLS?uid=' + uid + '&startTime=' + startTime +'&endTime=' + endTime;
-    }
-    /**
-     * 跳转到用户实时轨迹页面
-     * */
-    function catUserRtTrail(uid) {
-        window.location.href = '/userRtTrailATLS?uid=' + uid;
-    }
-    /**
-     * 导出文件
-     * */
-    function exportFlie(uid) {
-
-        // console.log("2:",uid+" ");
-        var startTime = $('#startTime').val();
-        var endTime = $('#endTime').val();
-
-        window.location.href = '/api/fileExport?uid=' + uid + '&startTime=' + startTime +'&endTime=' + endTime;
-
-    }
-    /**
      * 拖动框
      */
     $(document).ready(function () {
@@ -303,6 +289,8 @@
     //地图
     require([
         "Ips/map",
+        "esri/geometry/Extent",
+        "Ips/widget/IpsMeasure",
         "Ips/layers/DynamicMapServiceLayer",
         "Ips/layers/FeatureLayer",
         "Ips/layers/GraphicsLayer",
@@ -321,7 +309,7 @@
         "dojo/on",
         "dojo/dom",
         "dojo/domReady!"
-    ], function (Map, DynamicMapServiceLayer, FeatureLayer, GraphicsLayer, Graphic, SpatialReference,Point, Polyline, Polygon, InfoTemplate, SimpleMarkerSymbol, SimpleLineSymbol,
+    ], function (Map, Extent,IpsMeasure,DynamicMapServiceLayer, FeatureLayer, GraphicsLayer, Graphic, SpatialReference, Point, Polyline, Polygon, InfoTemplate, SimpleMarkerSymbol, SimpleLineSymbol,
                  SimpleFillSymbol, PictureMarkerSymbol, TextSymbol, Color, on, dom) {
 
 
@@ -347,7 +335,7 @@
             logo: false
         });
 
-        //初始化F1楼层平面图
+        //初始化F2楼层平面图
         var f2 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/outlets/outlets2f/MapServer");
         map2.addLayer(f2);
 
@@ -356,6 +344,55 @@
 
         map2.addLayer(pointLayerF2);
 
+
+        /**
+         * 更新位置信息小部件
+         */
+        function updateLocationBox(username,curr_lng,curr_lat,refer_lng,refer_lat,floor,location_method){
+            if (location_method==1){location_method='伪卫星+惯导'}
+            if (location_method==2){location_method='蓝牙+PDR+惯导'}
+            if (location_method==3){location_method='蓝牙+PDR'}
+            if (location_method==4){location_method='惯导'}
+            if (location_method==5){location_method='伪卫星'}
+            var currlat = (curr_lat+ "").substring(0,11);
+            var currlng = (curr_lng+ "").substring(0,12);
+            var referlat = (refer_lat+ "").substring(0,11);
+            var referlng = (refer_lng+ "").substring(0,12);
+            var d_lat = ((curr_lat-refer_lat)+ "");
+            var d_lng = ((curr_lng-refer_lng)+ "");
+            var index_lat=d_lat.lastIndexOf(".");
+            var index_lng=d_lng.lastIndexOf(".");
+            d_lat = d_lat.substring(0,index_lat+4);
+            d_lng = d_lng.substring(0,index_lng+4);
+            $('#user-msg').html(username+", "+floor+"楼, "+location_method);
+            $('#current-location').html("("+currlat+","+currlng+")");
+            $('#refer-location').html("("+referlat+","+referlng+")");
+            $('#offset-location').html("("+d_lat+","+d_lng+")m");
+        }
+        on(dom.byId("showClean"),"click",function(){
+            pointLayerF1.clear();
+            pointLayerF2.clear();
+        })
+
+
+        on(dom.byId("showGetCoo"),"click",function () {
+            var click1,click2;
+            click1= on(map1,"click",function (evt) {
+                var point=evt.mapPoint;
+                POINTLAT = point.y;
+                POINTLNG = point.x;
+                console.log(point);
+                click1.remove();
+                click2.remove();
+            });
+            click2= on(map2,"click",function (evt) {
+                var point=evt.mapPoint;
+                POINTLAT = point.y;
+                POINTLNG = point.x;
+                click1.remove();
+                click2.remove();
+            });
+        })
 
         /**
          * 添加点图标
@@ -378,12 +415,7 @@
             infoTemplate.setTitle('用户');
             infoTemplate.setContent(
                 "<b>名称:</b><span>${name}</span><br>"
-                + "<b>手机号:</b><span>${phone}</span><br>"
-                + "<b>起始时间：</b><input type='text' name='startTime'class='' id='startTime' placeholder='2018-01-01 00:00:00'><br>"
-                + "<b>终止时间：</b><input type='text' name='endTime'class='' id='endTime' placeholder='2018-01-01 23:59:59'><br>"
-                + "<button class='' onclick=catUserTrail(" + "'" + uid + "'" + ") > 查看该用户历史轨迹</button>"
-                + "<button class='' onclick=catUserRtTrail(" + "'" + uid + "'" + ") > 查看该用户实时轨迹</button>"
-                + "<button class='' onclick=exportFlie(" + "'" + uid + "'" + ") > 导出该时段数据</button>"
+                + "<b>时间:</b><span>${time}</span><br>"
             );
             var picgr = new Graphic(picpoint, picSymbol, attr, infoTemplate);
             if (floor == 1){
@@ -403,19 +435,21 @@
             $.get("/api/apiGetAllUserNewLocationList",
                 {},
                 function (dat, status) {
-                    console.log(dat);
+                    // console.log(dat);
                     if (dat.status == 0) {
                         // 删除数据
-                        pointLayerF1.clear();
-                        pointLayerF2.clear();
+                        // pointLayerF1.clear();
+                        // pointLayerF2.clear();
+                        // pointLayerF3.clear();
                         //重绘
                         pointLayerF1.redraw();
                         pointLayerF2.redraw();
                         // 添加人
                         //注销掉因为先单用户测试
                         for (var i in dat.data.users) {
-                            // for (var i=5; i<10; i++) {
-                            // console.log(dat.data[i].username);
+                            if (dat.data.users[i].uid != "{{$userPositionLists[0]->uid}}") {
+                                continue
+                            }
                             addUserPoint(
                                 dat.data.users[i].id,
                                 dat.data.users[i].uid,
@@ -425,6 +459,16 @@
                                 dat.data.users[i].phone,
                                 dat.data.users[i].floor,
                                 i
+                            );
+
+                            updateLocationBox(
+                                dat.data.users[i].name,
+                                dat.data.users[i].y,
+                                dat.data.users[i].x,
+                                POINTLNG,
+                                POINTLAT,
+                                dat.data.users[i].floor,
+                                dat.data.users[i].location_method
                             );
                         }
                     } else {

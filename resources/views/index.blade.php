@@ -96,9 +96,11 @@
             <dt><i class="Hui-iconfont">&#xe671;</i> 基础地图<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="{{ url('normalMapC7')}}" data-title="基础地图" href="javascript:void(0)">基础地图</a></li>
+                    <li><a data-href="{{ url('mapC7')}}" data-title="基础地图" href="javascript:void(0)">C7地图</a></li>
+                    <li><a data-href="{{ url('map331')}}" data-title="基础地图" href="javascript:void(0)">331地图</a></li>
+                    <li><a data-href="{{ url('ATLSmap')}}" data-title="基础地图" href="javascript:void(0)">奥特莱斯地图</a></li>
                     <li><a data-href="{{ url('routeMap')}}" data-title="路径导航" href="javascript:void(0)">路径导航</a></li>
-                    <li><a data-href="{{ url('ATLSmap')}}" data-title="奥莱示范模拟" href="javascript:void(0)">奥莱示范模拟</a></li>
+{{--                    <li><a data-href="{{ url('ATLSmap')}}" data-title="奥莱示范模拟" href="javascript:void(0)">奥莱示范模拟</a></li>--}}
                     <li><a data-href="http://121.28.103.199:5561/iserver/iClient/for3D/webgl/zh/examples/S3M_331.html" data-title="三维地图浏览" href="javascript:void(0)">三维地图浏览</a></li>
                 </ul>
             </dd>
@@ -129,8 +131,9 @@
             <dt><i class="Hui-iconfont">&#xe622;</i> 消息管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="{{ url('pushToMore')}}" data-title="用户群发" href="javascript:void(0)">用户群发</a></li>
-                    <li><a data-href="{{ url('pushToOne')}}" data-title="点对点发送" href="javascript:void(0)">点对点发送</a></li>
+                    <li><a data-href="{{ url('groupList')}}" data-title="群组列表" href="javascript:void(0)">广播群组列表</a></li>
+                    <li><a data-href="{{ url('pushToMore')}}" data-title="用户群发" href="javascript:void(0)">消息广播</a></li>
+                    <li><a data-href="{{ url('pushToOne')}}" data-title="点对点发送" href="javascript:void(0)">消息私信</a></li>
                 </ul>
             </dd>
         </dl>
@@ -139,7 +142,8 @@
             <dt><i class="Hui-iconfont">&#xe61a;</i> 位置大数据分析<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="{{ url(' ')}}" data-title="区域感知" href="javascript:void(0)">区域感知</a></li>
+                    <li><a data-href="{{ url('nameSelect')}}" data-title="精准位置评估" href="javascript:void(0)">精准位置评估</a></li>
+                    <li><a data-href="{{ url('areaPerception')}}" data-title="区域感知" href="javascript:void(0)">区域感知示范系统</a></li>
                 </ul>
             </dd>
         </dl>

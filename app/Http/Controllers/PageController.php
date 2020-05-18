@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\areaPercept;
 use App\Group;
 use App\Past_Locations;
+use App\sendGroups;
+use App\ttt;
 use App\Video;
 use App\TerminalUser;
 use phpDocumentor\Reflection\DocBlock\Tags\Uses;
@@ -106,6 +109,21 @@ class PageController extends Controller
     {
         return view('heatmap.peopleIn331');
     }
+    /**
+     * 331分层
+     */
+    public function map331()
+    {
+        return view('331map.331-map-F1');
+    }
+    public function map331F2()
+    {
+        return view('331map.331-map-F2');
+    }
+    public function map331F3()
+    {
+        return view('331map.331-map-F3');
+    }
     //-----------------------------------------------------------------------C7地图模块-----------------------------------------------
     /**
      * C7用户实时位置地图
@@ -141,6 +159,21 @@ class PageController extends Controller
         $userPositionList = TerminalUser::where('uid' ,'=', $uid)->get();
         return view('map.userRtTrailC7',['userPositionLists' => $userPositionList]);
     }
+    /**
+     * 331分层
+     */
+    public function mapC7()
+    {
+        return view('c7map.c7-map-F1');
+    }
+    public function mapC7F2()
+    {
+        return view('c7map.c7-map-F2');
+    }
+    public function mapC7F3()
+    {
+        return view('c7map.c7-map-F3');
+    }
     //---------------------------------------------------------------------奥莱地图模块------------------------------------------------
     /**
      * 奥特莱斯用户实时位置地图
@@ -151,7 +184,6 @@ class PageController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * 奥莱演示
      */
     public function ATLSmap()
@@ -296,6 +328,16 @@ class PageController extends Controller
     }
     //--------------------------------------------------------------------推送模块---------------------------------------------------
     /**
+     * 群组列表
+     */
+    public function groupList()
+    {
+        $groupInfo = sendGroups::all();
+        return view('push.groupList',['groupInfos'=>$groupInfo]);
+
+    }
+
+    /**
      * 云推送私信
      */
     public function pushToOne()
@@ -315,8 +357,41 @@ class PageController extends Controller
      */
     public function pushToMore()
     {
-        $group = Group::all();
-        return view('push.one2more',['groups' => $group]);
+        $groupInfo = sendGroups::all();
+        return view('push.one2more',['groupInfos'=>$groupInfo]);
 
+    }
+
+    //--------------------------------------------------------------------精准位置评估---------------------------------------------------
+
+    /**
+     * 精准位置评估之前选择要评估的对象，通过搜索来选择评估的对象用户
+     */
+    public function nameSelect()
+    {
+        return view('LocationAssessment.nameSearch');
+    }
+
+    /**
+     * 将用户定位到地图上
+     */
+    public function mapSelect()
+    {
+        $uid = rq('uid');
+        $address = rq('address');
+        $userPositionList = TerminalUser::where('uid' ,'=', $uid)->get();
+        if ($address == "奥特莱斯"){
+            return view('LocationAssessment.userRtTrailATLS',['userPositionLists' => $userPositionList]);
+        }elseif ($address == "331"){
+            return view('LocationAssessment.userRtTrail331',['userPositionLists' => $userPositionList]);
+        }elseif ($address == "C7"){
+            return view('LocationAssessment.userRtTrailC7',['userPositionLists' => $userPositionList]);
+        }
+    }
+    //--------------------------------------------------------------------区域感知---------------------------------------------------
+    public function areaPerception()
+    {
+        $area = areaPercept::all();
+        return view('areaPerception.c7-areaPerception',['areas' => $area]);
     }
 }

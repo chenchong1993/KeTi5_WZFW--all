@@ -57,169 +57,45 @@
     <div class="panel-body">
         <input class="btn btn-default" type="button" value="选定起点"  id="startPoint">
         <input class="btn btn-default" type="button" value="选定终点"  id="endPoint">
-{{--        <input class="btn btn-default" type="button" value="途径点  "  id="throughPoint">--}}
+        {{--        <input class="btn btn-default" type="button" value="途径点  "  id="throughPoint">--}}
         <input class="btn btn-default" type="button" value="清除    "  id="cleanPoint"><br><br>
         <input class="btn btn-default" type="button" value="生成路径"  id="routeAnalysis">
         <input class="btn btn-default" type="button" value="发送路径"  id="sendRoute" data-toggle="modal" data-target="#modal-sendTo">
     </div>
 </div>
+<div class="modal fade" id="modal-sendTo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
 
+            <div class="modal-header">
+                <h4 class="modal-title" >发送到...</h4>
+            </div>
+
+            <div class="modal-body">
+                <select class="form-control" style="height: 100%" id="select-user-search">
+                    <option value="name">查姓名</option>
+                </select>
+                <br>
+                <input type="text" class="form-control" id="input-sendTo" required>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="btn-close-sendTo-modal">关闭</button>
+                    <button type="button" class="btn btn-primary" id="btn-sendTo" onclick="userSend2Search()">查找</button>
+                </div>
+                <table class="table table-condensed " id="tab-send2user-list">
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
 <div class="row" style="height: 100%">
 
-    <div id="map_atls_1" class="col-md-12">
+    <div id="map" class="col-md-12">
         <input class="btn btn-primary radius" type="button" value="F1"  style="position: absolute;left: 93%;bottom: 14.2%;z-index: 99" onclick="go2F1();">
         <input class="btn btn-primary radius" type="button" value="F2"  style="position: absolute;left: 93%;bottom: 10%;z-index: 99" onclick="go2F2()">
+        <input class="btn btn-primary radius" type="button" value="F3"  style="position: absolute;left: 93%;bottom: 6%;z-index: 99" onclick="go2F3()">
         <h5 style="position: absolute; left: 50%;top: 5%;z-index: 10">一层</h5>
     </div>
-
-
-    <!-- 菜单 -->
-    <div style="position: absolute; z-index: 10; left: 50%; bottom: 10%";>
-        <nav class="nav" >
-            <input type="checkbox" class="nav__cb" id="menu-cb">
-            <div class="nav__content">
-                <ul class="nav__items">
-                    <li class="nav__item" style="position: absolute;left: 3%"> <span class="nav__item-text" data-toggle="modal" data-target="#modal-group-msg" > 群发消息</span> </li>
-                    <li class="nav__item" style="position: absolute;left: 33%"> <span class="nav__item-text" data-toggle="modal" data-target="#modal-shop-search" > 店铺搜索</span> </li>
-                    <li class="nav__item" style="position: absolute;left: 63%"> <span class="nav__item-text" data-toggle="modal" data-target="#modal-user-search" > 人员搜索 </span> </li>
-                    {{--                    <li class="nav__item"> <span class="nav__item-text" data-toggle="modal" data-target="#modal-car-search"> 车辆搜索</span> </li>--}}
-                </ul>
-            </div>
-            <label class="nav__btn" for="menu-cb"></label>
-        </nav>
-    </div>
-    <!-- 菜单 -->
-
-    <!-- 模态框 -->
-
-    <!-- 群发消息-->
-    <div class="modal fade" id="modal-group-msg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" >群发消息</h4>
-                </div>
-                <div class="modal-body">
-                    <input type="text" class="form-control" id="input-group-msg" >
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary" id="btn-group-msg" onclick="groupMsg()">发送</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 店铺查询 -->
-    <div class="modal fade" id="modal-shop-search" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-
-                <div class="modal-header">
-                    <h4 class="modal-title" >店铺搜索</h4>
-                </div>
-
-                <div class="modal-body">
-                    <select class="form-control" style="height: 100%" id="select-user-search">
-                        <option value="name">查店铺名称</option>
-                    </select>
-                    <br>
-                    <input type="text" class="form-control" id="input-shop-search" required>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal" id="btn-close-user-search-modal">关闭</button>
-                        <button type="button" class="btn btn-primary" id="btn-shop-search">查找</button>
-                    </div>
-                    <table class="table table-condensed " id="tab-shop-list">
-                    </table>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- 人员查询 -->
-    <div class="modal fade" id="modal-user-search" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-
-                <div class="modal-header">
-                    <h4 class="modal-title" >人员搜索</h4>
-                </div>
-
-                <div class="modal-body">
-                    <select class="form-control" style="height: 100%" id="select-user-search">
-                        <option value="name">查姓名</option>
-                    </select>
-                    <br>
-                    <input type="text" class="form-control" id="input-user-search" required>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal" id="btn-close-user-search-modal">关闭</button>
-                        <button type="button" class="btn btn-primary" id="btn-user-search" onclick="userSearch()">查找</button>
-                    </div>
-                    <table class="table table-condensed " id="tab-user-list">
-                    </table>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- 车辆查询 -->
-{{--    <div class="modal fade" id="modal-car-search" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">--}}
-{{--        <div class="modal-dialog" role="document">--}}
-{{--            <div class="modal-content">--}}
-
-{{--                <div class="modal-header">--}}
-{{--                    <h4 class="modal-title" >车辆搜索</h4>--}}
-{{--                </div>--}}
-
-{{--                <div class="modal-body">--}}
-{{--                    <select class="form-control" style="height: 100%" id="select-car-search">--}}
-{{--                        <option value="name">查车主姓名</option>--}}
-{{--                    </select>--}}
-{{--                    <br>--}}
-{{--                    <input type="text" class="form-control" id="input-car-search" required>--}}
-
-{{--                    <div class="modal-footer">--}}
-{{--                        <button type="button" class="btn btn-default" data-dismiss="modal" id="btn-close-device-search-modal">关闭</button>--}}
-{{--                        <button type="button" class="btn btn-primary" id="btn-car-search" onclick="carSearch()">查找</button>--}}
-{{--                    </div>--}}
-
-{{--                    <table class="table table-condensed " id="tab-car-list">--}}
-{{--                    </table>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-
-    <!-- 路径发送到 -->
-    <div class="modal fade" id="modal-sendTo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-
-                <div class="modal-header">
-                    <h4 class="modal-title" >发送到...</h4>
-                </div>
-
-                <div class="modal-body">
-                    <select class="form-control" style="height: 100%" id="select-user-search">
-                        <option value="name">查姓名</option>
-                    </select>
-                    <br>
-                    <input type="text" class="form-control" id="input-sendTo" required>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal" id="btn-close-sendTo-modal">关闭</button>
-                        <button type="button" class="btn btn-primary" id="btn-sendTo" onclick="userSend2Search()">查找</button>
-                    </div>
-                    <table class="table table-condensed " id="tab-send2user-list">
-                    </table>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- 模态框 -->
 
 </div>
 
@@ -258,10 +134,13 @@
      * 楼层切换
      */
     function go2F1() {
-        window.location.href = '/ATLSmap';
+        window.location.href = '/map331';
     }
     function go2F2() {
-        window.location.href = '/ATLSmapF2';
+        window.location.href = '/map331F2';
+    }
+    function go2F3() {
+        window.location.href = '/map331F3';
     }
 
     /**
@@ -350,36 +229,6 @@
             }
         );
     }
-    /**
-     * [车辆查找]
-     * @return null
-     */
-    // function carSearch(){
-    //     var select_content = $('#input-car-search').val();
-    //     $.post("/api/getCarByName",
-    //         {'name':select_content},
-    //         function (dat, status) {
-    //
-    //             if (dat.status == 0) {
-    //                 $('#tab-car-list').empty();
-    //                 $('#tab-car-list').append('<tr><th>姓名</th><th>所在楼层</th><th>操作</th></tr>');
-    //                 for (var i in dat.data.users) {
-    //                     $('#tab-car-list').append(
-    //                         '<tr>'+
-    //                         '<td>'+ dat.data.users[i].name +'</td>'+
-    //                         '<td>'+ dat.data.users[i].floor +'</td>'+
-    //                         '<td><button class="btn btn-default btn-xs" onclick="locationTo('+ dat.data.users[i].y +','+ dat.data.users[i].x + ',' + dat.data.users[i].floor + ')">查看</button></td>'+
-    //                         '</tr>'
-    //                     );
-    //                 }
-    //                 notify("查找成功", "sys");
-    //             } else {
-    //                 notify("查找失败", "sys");
-    //             }
-    //         }
-    //     );
-    //
-    // }
     /**
      * [群发消息]
      * @return {[type]} [description]
@@ -561,12 +410,18 @@
 
 
         //-----------------------------一层-------------------------------------
-        map = new Map("map_atls_1", {
-            logo: false
+
+        /**
+         * 定义三张地图，并设定必要参数
+         */
+        var map = new Map("map", {
+            logo:false,
+            zoom:21,
+            center: [114.3489254,38.24772],
         });
 
         //初始化F1楼层平面图
-        var f1 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/outlets/outlets1f/MapServer");
+        var f1 = new DynamicMapServiceLayer("http://121.28.103.199:5567/arcgis/rest/services/331/floorone/MapServer");
         map.addLayer(f1);
 
         //初始化pointLayer 用户数据点图层
@@ -575,7 +430,7 @@
 
         // --------------------------路径分析-----------------------------------------
         //创建路径分析对象
-        var routeAnalyst = new RouteTask("http://121.28.103.199:5567/arcgis/rest/services/outlets/network1/NAServer/route");
+        var routeAnalyst = new RouteTask("http://121.28.103.199:5567/arcgis/rest/services/331/network1/NAServer/route");
         //创建路径参数对象
         var routeParas = new RouteParameters();
         //障碍点，但是此时障碍点为空
@@ -709,115 +564,7 @@
             // points = "";
         });
         // --------------------------路径分析结束-----------------------------------------
-        //---------------------------地图检索开始-----------------------------------------
-        // 实例化FindTask
-        var findTask = new FindTask("http://121.28.103.199:5567/arcgis/rest/services/outlets/outlets1f/MapServer");
-        // FindTask的参数
-        var findParams = new FindParameters();
-        // 返回Geometry
-        findParams.returnGeometry = true;
-        // 查询的图层id
-        findParams.layerIds = [8];
-        // 查询字段
-        findParams.searchFields = ["name"];
 
-        var ptSymbol = new SimpleMarkerSymbol(SimpleMarkerSymbol.STYLE_SQUARE, 10, new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID, new Color([255, 0, 0]), 1), new Color([0, 255, 0, 0.25]));
-        var lineSymbol = new SimpleLineSymbol(SimpleLineSymbol.STYLE_DASH, new Color([255, 0, 0]), 1);
-        var polygonSymbol = new SimpleFillSymbol(SimpleFillSymbol.STYLE_NONE, new SimpleLineSymbol(SimpleLineSymbol.STYLE_DASHDOT, new Color([255, 0, 0]), 2), new Color([255, 255, 0, 0.25]));
-
-        on(document.getElementById("btn-shop-search"), "click", function () {
-            execute(document.getElementById('input-shop-search').value);
-        });
-
-        // 根据输入的关键字进行findTask操作
-        function execute(searchText) {
-            findParams.searchText = searchText;
-            findTask.execute(findParams, showResults);
-            console.log(searchText);
-            console.log(findParams);
-        }
-
-        // 显示findTask的结果
-        function showResults(results) {
-            // 清除上一次的高亮显示
-            map.graphics.clear();
-
-            var innerHtml = "";
-            var symbol;
-            for (var i = 0; i < results.length; i++) {
-                var curFeature = results[i];
-                var graphic = curFeature.feature;
-                var infoTemplate = null;
-                // 根据类型设置显示样式
-                switch (graphic.geometry.type) {
-                    case "point":
-                        symbol = ptSymbol;
-                        infoTemplate = new InfoTemplate("${CITY_NAME}", "${*}");
-                        break;
-                    case "polyline":
-                        var symbol = lineSymbol;
-                        break;
-                    case "polygon":
-                        var symbol = polygonSymbol;
-                        break;
-                }
-                // 设置显示样式
-                graphic.setSymbol(symbol);
-                graphic.setInfoTemplate(infoTemplate);
-                // 添加到graphics进行高亮显示
-                map.graphics.add(graphic);
-
-                var sGeometry = graphic.geometry;
-                var sExtent = sGeometry.getExtent();
-                sExtent = sExtent.expand(2);
-                map.setExtent(sExtent);
-
-                if (curFeature.layerId === 0) {
-                    innerHtml += "<a href='javascript:positionFeature(" + graphic.attributes.FID + ")'>" + graphic.attributes.CITY_NAME + "</a><br>";
-                }
-                else if (curFeature.layerId === 1) {
-                    innerHtml += "<a href='javascript:positionFeature(" + graphic.attributes.FID + ")'>" + graphic.attributes.NAME + "</a><br>";
-                }
-                else {
-                    innerHtml += "<a href='javascript:positionFeature(" + graphic.attributes.FID + ")'>" + graphic.attributes.STATE_NAME + "</a><br>";
-                }
-            }
-
-        }
-
-        window.positionFeature = function (id) {
-            var sGrapphic;
-            //遍历地图的图形查找FID和点击行的FID相同的图形
-            for (var i = 0; i < map.graphics.graphics.length; i++) {
-                var cGrapphic = map.graphics.graphics[i];
-                if ((cGrapphic.attributes) && cGrapphic.attributes.FID == id) {
-                    sGrapphic = cGrapphic;
-                    break;
-                }
-            }
-
-            var sGeometry = sGrapphic.geometry;
-            // 当点击的名称对应的图形为点类型时进行地图中心定位显示
-            if (sGeometry.type == "point") {
-                var cPoint = new Point();
-                cPoint.x = sGeometry.x;
-                cPoint.y = sGeometry.y;
-                map.centerAt(cPoint);
-
-                var p = map.toScreen(sGrapphic.geometry);
-                var iw = map.infoWindow;
-                iw.setTitle(sGrapphic.getTitle());
-                iw.setContent(sGrapphic.getContent());
-                iw.show(p, map.getInfoWindowAnchor(p));
-            }
-            //当点击的名称对应的图形为线或面类型时获取其范围进行放大显示
-            else {
-                var sExtent = sGeometry.getExtent();
-                sExtent = sExtent.expand(12);
-                map.setExtent(sExtent);
-            }
-        };
-        //---------------------------地图检索结束-----------------------------------------
         /**
          * 添加用戶點
          * @param {[type]} id      [用户ID]
@@ -864,7 +611,7 @@
 
 
         /**
-         * 从服务器读取列表数据数据并更新界面
+         * 从服务器读取转发器列表数据数据并更新界面
          */
         function getDataAndRefresh() {
             // 从云端读取数据
@@ -896,23 +643,7 @@
                                 i
                             );
                         }
-                        // for (var i in dat.data.cars) {
-                        //     // for (var i=5; i<10; i++) {
-                        //     // console.log(dat.data[i].username);
-                        //     if (dat.data.cars[i].floor == 1){
-                        //
-                        //         addUserPoint(
-                        //             dat.data.cars[i].id,
-                        //             dat.data.cars[i].uid,
-                        //             dat.data.cars[i].y,
-                        //             dat.data.cars[i].x,
-                        //             dat.data.cars[i].name,
-                        //             dat.data.cars[i].phone,
-                        //             dat.data.cars[i].floor,
-                        //             i
-                        //         );
-                        //     }
-                        // }
+
                     } else {
                         console.log('ajax error!');
                     }

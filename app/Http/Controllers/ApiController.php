@@ -7,12 +7,13 @@
  */
 
 namespace App\Http\Controllers;
-use App\Fences;
-use App\FenUser;
+use App\areaPercept;
 use App\GridSendInfo;
+use App\groupMembers;
 use App\HeatMapData;
 use App\Obs;
 use App\Past_Locations;
+use App\sendGroups;
 use App\Sensor;
 use App\TerminalUser;
 use App\TerminalUserCar;
@@ -156,35 +157,25 @@ class ApiController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function apiUserAdd(Request $request)
+    public function apiUserAdd()
     {
 
-
         //控制器验证，如果通过继续往下执行，如果没通过抛出异常返回当前视图。
-        if ($request->isMethod('POST')){
-            $this->validate($request,[
-                'username'=>'required',
-                'password'=>'required',
-                'email'   =>'required',
-                'sex'     =>'required',
-                'phone'     =>'required',
-            ],[
-                'required'=>':attribute 为必填项'
-            ],[
-                'username'=>'用户名',
-                'password'=>'密码',
-                'email'   =>'email',
-                'sex'     =>'性别',
-                'phone'     =>'手机号',
-            ]);
-        }
+        $validator = Validator::make(rq(), [
+            'username' => 'required',
+            'password' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+            'sex' => 'required',
+        ]);
+        if ($validator->fails())
+            return err(1, $validator->messages());
 
-//从表单视图传过来的输入信息
-        $username = $request->input('username');
-        $password = $request->input('password');
-        $email    = $request->input('email');
-        $sex      = $request->input('sex');
-        $mobile      = $request->input('phone');
+        $username = rq('username');
+        $password = rq('password');
+        $phone = rq('phone');
+        $email = rq('email');
+        $sex = rq('sex');
         if ($sex==10) {
             $sex="保密";
         }
@@ -209,9 +200,9 @@ class ApiController extends Controller
 //判断是否注册成功
         if(strpos($response,"true")==false){
             if (strpos($response,"用户名已被占用")==false){
-                echo "未知错误";
+                return err(1, '未知错误');
             }else{
-                echo  "用户名已被占用";
+                return err(1, '用户名已被占用');
             }
 
         }else{
@@ -222,13 +213,12 @@ class ApiController extends Controller
             $users->password = $password;
             $users->sex = $sex;
             $users->email = $email;
-            $users->phone = $mobile;
+            $users->phone = $phone;
             $users->status = "0";
             if ($users->save()){
-                echo "添加成功";
-//                return redirect('userList')->with('success','添加成功');
+                return err(1,'添加成功');
             }else{
-                echo "数据库存储错误";
+                return err(1, '数据库存储错误');
             }
 
         }
@@ -343,6 +333,15 @@ class ApiController extends Controller
         if ($validator->fails())
             return err(1, $validator->messages());
 
+        $lat331= 38.24773062;
+        $lng331=114.34898073;
+
+        $xC7 = 4212828.38;
+        $yC7 = 538240.68;
+
+        $xoutlets= 4202883.4;
+        $youtlets = 534384.3;
+
         $uid = rq('uid');
         $x = rq('x');
         $y = rq('y');
@@ -353,6 +352,9 @@ class ApiController extends Controller
         $location_method = rq('location_method');
         $users =TerminalUser::where('uid',$uid)->first();
         if ($users){
+            if (sqrt((pow(($lat-$lat331),2)+pow(($lng-$lng331),2)))<0.05){
+                $users->address = "331";
+            }
 //            更新
             if($x>1000000){
                 $users->x = $x;
@@ -472,8 +474,7 @@ class ApiController extends Controller
     public function apiGetAllUserNewLocationList()
     {
         $users = TerminalUser::get();
-        $car = TerminalUserCar::get();
-        return suc(['users'=>$users,'cars'=>$car]);
+        return suc(['users'=>$users]);
     }
 
     /**
@@ -592,66 +593,6 @@ class ApiController extends Controller
     }
 
 
-//用于电子围栏项目
-    /**
-     * 上传位置并判断是否再围栏里
-     * 添加或者更新实时位置数据库
-     */
-    public function apiInFences()
-    {
-        $validator = Validator::make(rq(), [
-            //'uid' => 'required',
-            'lng' => 'required',
-            'lat' => 'required',
-        ]);
-
-        if ($validator->fails())
-            return err(1, $validator->messages());
-
-        $uid = 32770901179105290;//rq('uid');
-        $lng = rq('lng');
-        $lat = rq('lat');
-        $users =FenUser::where('uid',$uid)->first();
-//        $fences = Fences::where('uid',$uid)->first();获取围栏范围这里先写死吧
-        $lng1 = 116.29656182;
-        $lat1 = 40.04275177;
-        $lng2 = 116.29946182;
-        $lat2 = 40.04576177;
-        if (($lat>$lat1)&($lat<$lat2)&($lng>$lng1)&($lng<$lng2)){
-            $status = 1;//在围栏里状态为1
-        }else{
-            $status = 0;//不在围栏里状态为0
-        }
-        if ($users){
-//            更新
-            $users->lng = $lng;
-            $users->lat = $lat;
-            $users->status = $status;
-            $users->save();
-
-        }
-        else{
-            //插入
-            $users = new FenUserUser();
-            $users->uid = $uid;
-            $users->lng = $lng;
-            $users->lat = $lat;
-            $users->status = $status;
-            $users->save();
-
-        }
-        return $status;
-    }
-
-    /**
-     * 获取围栏用户坐标
-     */
-    public function apiGetLocationList(){
-        $users = FenUser::get();
-        return suc($users);
-    }
-
-
     /**
      * [根据名字模糊查询用户列表]
      * @return [type] [description]
@@ -735,5 +676,195 @@ class ApiController extends Controller
 //        $msg_rx->save();
 
         return suc();
+    }
+
+    /**
+     * 添加群组成员
+     */
+    public function memberAdd()
+    {
+        $validator = Validator::make(rq(), [
+            'id' => 'required',
+            'uid' => 'required',
+        ]);
+
+        if ($validator->fails())
+            return err(1, $validator->messages());
+
+        $groupID = rq('id');
+        $uid = rq('uid');
+        $groupINFO = sendGroups::where('id', $groupID)->first();
+        $userInfo = TerminalUser::where('uid', $uid)->first();
+        $name =  $userInfo->name;
+        $f = strpos($groupINFO->member, $uid);
+        if ($f === false) {
+            if ($groupINFO) {
+//            更新
+                $groupINFO->member = $groupINFO->member . $uid . ";";
+                $groupINFO->memberName = $groupINFO->memberName . $name . ";";
+                $groupINFO->save();
+
+            }
+            return suc("添加成功");
+        } else {
+            return suc("该成员已存在");
+        }
+    }
+    /**
+     * 获取群组成员列表
+     */
+    public function memberList(){
+        $validator = Validator::make(rq(), [
+            'id' => 'required',
+        ]);
+
+        if ($validator->fails())
+            return err(1, $validator->messages());
+
+        $groupID = rq('id');
+        $groupINFO = sendGroups::where('id', $groupID)->first();
+//        echo $groupINFO->memberName;
+//        echo $groupINFO->member;
+        $nameArr = explode(";", $groupINFO->memberName,-1);
+        $idArr = explode(";", $groupINFO->member,-1);
+        $member = array();
+//        $member = new groupMembers();
+//        for ($i=0; $i<sizeof($nameArr); $i++) {
+//            $member[$i]->name = $nameArr[$i];
+//            $member[$i]->id = $idArr[$i];
+//
+//        }
+        return suc(['names'=>$nameArr,'ids'=>$idArr]);
+    }
+
+    /**
+     * 移除群组成员
+     */
+    public function memberDel()
+    {
+        $validator = Validator::make(rq(), [
+            'id' => 'required',
+            'uid' => 'required',
+            'name' => 'required',
+        ]);
+
+        if ($validator->fails())
+            return err(1, $validator->messages());
+
+        $groupID = rq('id');
+        $uid = rq('uid');
+        $name = rq('name');
+        $groupINFO = sendGroups::where('id', $groupID)->first();
+        $f = strpos($groupINFO->member, $uid);
+//        return $f;
+        if ($f !== false) {
+            if ($groupINFO) {
+                $groupINFO->member = str_replace($uid.";","",$groupINFO->member);
+                $groupINFO->memberName = str_replace($name.";","",$groupINFO->memberName);
+                $groupINFO->save();
+                return suc("移除成功");
+            }
+        } else {
+            return suc("该成员已移除");
+        }
+    }
+    /**
+     * 添加群组
+     */
+    public function apiAddGroup(){
+        $validator = Validator::make(rq(), [
+            'groupname' => 'required',
+            'admin' => 'required',
+        ]);
+
+        if ($validator->fails())
+            return err(1, $validator->messages());
+        $groupName = rq('groupname');
+        $admin = rq('admin');
+        $describe = rq('describe');
+        $groupInfo = new sendGroups();
+        $groupInfo->groupName = $groupName;
+        $groupInfo->admin = $admin;
+        $groupInfo->describe = $describe;
+
+        if ($groupInfo->save()){
+            return suc("新建群组成功");
+        }else{
+            return suc("新建群组失败");
+        }
+    }
+    /**
+     * 解散群组
+     */
+    public function apiDelGroup()
+    {
+        $validator = Validator::make(rq(), [
+            'id' => 'required',
+        ]);
+
+        if ($validator->fails())
+            return err(1, $validator->messages());
+
+        $groupID = rq('id');
+        $groupINFO = sendGroups::where('id', $groupID)->first();
+        if ($groupINFO->delete()){
+            return suc("解散成功");;
+        }else{
+            return suc("解散失败");;
+        }
+
+
+    }
+    /**
+     * 添加区域位置感知边界范围点集合
+     */
+    public function apiAddPointList(){
+        $validator = Validator::make(rq(), [
+            'pointList' => 'required',
+        ]);
+
+        if ($validator->fails())
+            return err(1, $validator->messages());
+        $id = rq('id');
+        $describe = rq('describe');
+        $pointList = rq('pointList');
+
+        if (areaPercept::where('describe', $describe)->first()||areaPercept::where('pointList', $pointList)->first()){
+            return suc("该区域或描述已存在");
+        }elseif ($pointList=="[]"){
+            return suc("请重新选择边界");
+        }else{
+            $areaInfo = new areaPercept();
+            $areaInfo->pointList = $pointList;
+            $areaInfo->describe = $describe;
+
+            if ($areaInfo->save()){
+                return suc("感知区域创建成功");
+            }else{
+                return suc("感知区域创建失败");
+            }
+        }
+    }
+    /**
+     * 从数据库获取已存在的位置感知区域
+     */
+    public function apiGetUserAndArea()
+    {
+        $users = TerminalUser::get();
+        $areaInfo = areaPercept::get();
+        return suc(['users'=>$users,'areas'=>$areaInfo]);
+    }
+    /**
+     * 删除用户接口
+     */
+    public function apiAreaDelete()
+    {
+        $id = rq('id');
+        $areaInfo = areaPercept::where("id",'=',$id)->first();;
+        if ($areaInfo->delete()){
+            return 0;
+        }else{
+            return 1;
+        }
     }
 }

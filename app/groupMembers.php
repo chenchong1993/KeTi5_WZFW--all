@@ -9,7 +9,6 @@
 namespace App;
 use Illuminate\Database\Eloquent\Model;
 
-class Fences extends Model
+class groupMembers extends Model
 {
-    protected $table = "fences_linshi";
 }

@@ -47,7 +47,9 @@
                     <td>{{ $user->email }}</td>
                     <td class="f-14 td-manage">
                         <a style="text-decoration:none" class="ml-5" onClick="userEdit('{{ $user->uid}}')" href="javascript:;" title="编辑">
-                            <i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="userDel(this,'{{ $user->uid}}')" href="javascript:;" title="删除">
+                            <i class="Hui-iconfont">&#xe6df;</i>
+                        </a>
+                        <a style="text-decoration:none" class="ml-5" onClick="userDel(this,'{{ $user->uid}}')" href="javascript:;" title="删除">
                             <i class="Hui-iconfont">&#xe6e2;</i>
                         </a>
                     </td>
